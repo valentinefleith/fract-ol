@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/17 10:14:33 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:22:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int main(void)
 
 	// Afficher l'image dans la fenetre
 	
-	for (int i = 20; i < 40; i++)
+	for (int i = 20; i < 400; i++)
 	{
-		for (int j = 20; j < 40; j++)
+		for (int j = 20; j < 400; j++)
 		{
 			my_mlx_pixel_put(&img, i, j, 0x00FF0A80);
 		}
