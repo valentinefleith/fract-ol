@@ -6,13 +6,13 @@
 #    By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 08:59:16 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/17 11:29:14 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/17 23:01:48 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fract-ol
 
-SRC_DIR = src
+#SRC_DIR = src
 OBJ_DIR = build
 INC = include
 PATH_MLX = minilibx-linux
@@ -25,7 +25,7 @@ MLXFLAG = -lmlx -lXext -lX11
 
 SRCS = main.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all
 all : $(NAME)
@@ -35,12 +35,12 @@ $(NAME) : $(OBJS)
 
 $(OBJ_DIR)/%.o: %.c
 	@echo Compiling $<
+	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I$(INC) $(MLXFLAG) -c $< -o $@
 
 .PHONY: clean
 clean:
 	@rm -rf $(OBJ_DIR)
-	@rm main.o
 	@echo Object files cleaned
 #@make -C $(LIBFT) clean
 
