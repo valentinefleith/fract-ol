@@ -6,11 +6,14 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/17 11:52:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/17 22:49:19 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
+#include <stdlib.h>
+
+#define MALLOC_ERROR 1
 
 typedef struct s_data
 {
@@ -30,8 +33,13 @@ typedef struct s_vars
 
 int close_window(int keycode, t_vars *vars)
 {
-	(void)keycode;
-	mlx_destroy_window(vars->mlx, vars->win);
+	if (keycode == 65307)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_destroy_display(vars->mlx);
+		free(vars->mlx);
+		exit(0);
+	}
 	return (0);
 }
 
@@ -54,9 +62,18 @@ int main(void)
 	//void *win;
 
 	vars.mlx = mlx_init();
+	if (vars.mlx == NULL)
+		return (MALLOC_ERROR);
 
 	//Creer une fenetre
 	vars.win = mlx_new_window(vars.mlx, 800, 800, "test window");
+	if (vars.win == NULL)
+	{
+		mlx_destroy_display(vars.mlx);
+		free(vars.mlx);
+		return (MALLOC_ERROR);
+
+	}
 	
 	// Creer une image
 	img.img = mlx_new_image(vars.mlx, 800, 800);
@@ -72,7 +89,10 @@ int main(void)
 		}
 	}
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	mlx_hook(vars.win, 2, 1L << 0, close_window, &vars);
+	
+	//mlx_mouse_hook(vars.win, mouse_hook, &vars);
+	mlx_key_hook(vars.win, close_window, &vars);
+	mlx_hook(vars.win, 4, 0, close_window, &vars);
 
 	// Lancer la boucle d'evenements
 	mlx_loop(vars.mlx);
