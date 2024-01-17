@@ -6,7 +6,7 @@
 #    By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 08:59:16 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/17 11:27:30 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/17 11:29:14 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ $(OBJ_DIR)/%.o: %.c
 .PHONY: clean
 clean:
 	@rm -rf $(OBJ_DIR)
+	@rm main.o
 	@echo Object files cleaned
 #@make -C $(LIBFT) clean
 
