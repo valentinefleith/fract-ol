@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/17 10:22:25 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:52:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@ typedef struct s_data
 	int endian; // Format de stockage des couleurs (BE ou LE)
 }		t_data;
 
+typedef struct s_vars
+{
+	void *mlx;
+	void *win;
+}
+	t_vars;
+
+int close_window(int keycode, t_vars *vars)
+{
+	(void)keycode;
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+
 
 void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -34,17 +48,18 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int main(void)
 {
-	void *mlx;
+	//void *mlx;
+	t_vars vars;
 	t_data img;
-	void *win;
+	//void *win;
 
-	mlx = mlx_init();
+	vars.mlx = mlx_init();
 
 	//Creer une fenetre
-	win = mlx_new_window(mlx, 800, 800, "test window");
+	vars.win = mlx_new_window(vars.mlx, 800, 800, "test window");
 	
 	// Creer une image
-	img.img = mlx_new_image(mlx, 800, 800);
+	img.img = mlx_new_image(vars.mlx, 800, 800);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 
 	// Afficher l'image dans la fenetre
@@ -56,8 +71,9 @@ int main(void)
 			my_mlx_pixel_put(&img, i, j, 0x00FF0A80);
 		}
 	}
-	mlx_put_image_to_window(mlx, win, img.img, 0, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_hook(vars.win, 2, 1L << 0, close_window, &vars);
 
 	// Lancer la boucle d'evenements
-	mlx_loop(mlx);
+	mlx_loop(vars.mlx);
 }
