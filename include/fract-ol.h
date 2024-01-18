@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 17:46:10 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:23:43 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ typedef struct s_vars
 }
 	t_vars;
 
+void calculate_and_put_pixels(t_data *img);
+void draw_fractal(t_vars vars);
 int close_window(int keycode, t_vars *vars);
 void my_mlx_pixel_put(t_data *data, int x, int y, int color);
