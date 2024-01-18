@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 20:23:43 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:42:35 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <stdlib.h>
 
 #define MALLOC_ERROR 1
+
+#define HEIGHT 600
+#define WIDTH 800
 
 
 typedef struct s_data
@@ -32,7 +35,17 @@ typedef struct s_vars
 }
 	t_vars;
 
+typedef struct s_point
+{
+	int x;
+	int y;
+	int real;
+	int imaginary;
+}
+	t_point;
+
 void calculate_and_put_pixels(t_data *img);
 void draw_fractal(t_vars vars);
 int close_window(int keycode, t_vars *vars);
 void my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int calculate_pixel_color(int x, int y);

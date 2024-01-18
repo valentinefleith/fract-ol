@@ -6,19 +6,44 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 20:22:28 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:42:59 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract-ol.h"
 
+int calculate_pixel_color(int x, int y)
+{
+	t_point zero;
+	//t_point point;
+
+	zero.x = WIDTH / 2;
+	zero.y = HEIGHT / 2;
+	t_point point = {x, y, x - zero.x, y - zero.y};
+	int z = 0;
+	int max = 100000;
+	for (int i = 0; i < 100; i++)
+	{
+		z = (z * z) + point.real + point.imaginary;
+		if (z > max)
+		{
+			return 0xFFFFFFFF;
+		}
+	}
+	return 0;
+}
+
 void calculate_and_put_pixels(t_data *img)
 {
-	for (int i = 20; i < 400; i++)
+	
+	for (int i = 0; i < 800; i++)
 	{
-		for (int j = 20; j < 400; j++)
+		for (int j = 0; j < 800; j++)
 		{
-			my_mlx_pixel_put(img, i, j, 0x00FF0A80);
+			int color = calculate_pixel_color(i, j);
+			if (color)
+				my_mlx_pixel_put(img, i, j, color);
+			//0x00FF0A80
 		}
 	}
 }
