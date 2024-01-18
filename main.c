@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 20:24:21 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:34:49 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 		return (MALLOC_ERROR);
 
 	//Creer une fenetre
-	vars.win = mlx_new_window(vars.mlx, 800, 800, "test window");
+	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "test window");
 	if (vars.win == NULL)
 	{
 		mlx_destroy_display(vars.mlx);

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 22:55:07 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/19 00:08:10 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,30 @@
 
 int calculate_pixel_color(int x, int y)
 {
-
-	t_complex point = {x - (WIDTH / 2), y - (HEIGHT / 2)};
+	int zoom = 100;
+	double x1 = -2.1;
+	double x2 = 0.6;
+	double y1 = -1.2;
+	double y2 = 1.2;
+	//t_complex point = {(float)(x - (WIDTH / 2))/zoom + x1, (float)(y - (HEIGHT / 2))/zoom + y1};
+	//t_complex point = {(float)(x /zoom + x1), (float)(y /zoom + y1)};
+	t_complex point;
+	point.real = ((x + x1)/ zoom);
+	//point.real = (x / zoom + x1);
+	point.imaginary = ((y + y1) / zoom);
 	t_complex z;
 	z.real = 0;
 	z.imaginary = 0;
-	int max = 21474836;
-	for (int i = 0; i < 100; i++)
+	//int max = 214748360;
+	int max = 4;
+	for (int i = 0; i < 50; i++)
 	{
-		int temp = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
-		z.imaginary = (2 * z.real * z.imaginary) + point.imaginary;
-		z.real = temp;
-		point.real = z.real;
-		point.imaginary = z.imaginary;
-		if (z.real > max || z.imaginary > max)
+		double tmp = z.real;
+		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
+		z.imaginary = (2 * tmp * z.imaginary) + point.imaginary;
+		//point.real = z.real;
+		//point.imaginary = z.imaginary;
+		if (z.real * z.real + z.imaginary * z.imaginary > 4)
 		{
 			return 0xFFFFFFFF;
 		}
@@ -38,9 +48,9 @@ int calculate_pixel_color(int x, int y)
 void calculate_and_put_pixels(t_data *img)
 {
 	
-	for (int i = 0; i < 800; i++)
+	for (int i = 0; i < WIDTH; i++)
 	{
-		for (int j = 0; j < 800; j++)
+		for (int j = 0; j < HEIGHT; j++)
 		{
 			int color = calculate_pixel_color(i, j);
 			if (color)
@@ -54,7 +64,7 @@ void draw_fractal(t_vars vars)
 {
 	t_data img;
 
-	img.img = mlx_new_image(vars.mlx, 800, 800);
+	img.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	calculate_and_put_pixels(&img);
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);

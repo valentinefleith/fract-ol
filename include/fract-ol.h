@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 22:47:47 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:42:27 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #define MALLOC_ERROR 1
 
-#define HEIGHT 600
-#define WIDTH 800
+#define HEIGHT 240
+#define WIDTH 270
 
 
 typedef struct s_data
@@ -37,8 +37,8 @@ typedef struct s_vars
 
 typedef struct s_complex
 {
-	int real;
-	int imaginary;
+	double real;
+	double imaginary;
 }
 	t_complex;
 
