@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 22:42:59 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:55:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 int calculate_pixel_color(int x, int y)
 {
-	t_point zero;
-	//t_point point;
 
-	zero.x = WIDTH / 2;
-	zero.y = HEIGHT / 2;
-	t_point point = {x, y, x - zero.x, y - zero.y};
-	int z = 0;
-	int max = 100000;
+	t_complex point = {x - (WIDTH / 2), y - (HEIGHT / 2)};
+	t_complex z;
+	z.real = 0;
+	z.imaginary = 0;
+	int max = 21474836;
 	for (int i = 0; i < 100; i++)
 	{
-		z = (z * z) + point.real + point.imaginary;
-		if (z > max)
+		int temp = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
+		z.imaginary = (2 * z.real * z.imaginary) + point.imaginary;
+		z.real = temp;
+		point.real = z.real;
+		point.imaginary = z.imaginary;
+		if (z.real > max || z.imaginary > max)
 		{
 			return 0xFFFFFFFF;
 		}

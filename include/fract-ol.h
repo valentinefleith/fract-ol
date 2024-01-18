@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/18 22:42:35 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:47:47 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ typedef struct s_vars
 }
 	t_vars;
 
-typedef struct s_point
+typedef struct s_complex
 {
-	int x;
-	int y;
 	int real;
 	int imaginary;
 }
-	t_point;
+	t_complex;
 
 void calculate_and_put_pixels(t_data *img);
 void draw_fractal(t_vars vars);
