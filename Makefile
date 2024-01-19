@@ -6,13 +6,13 @@
 #    By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 08:59:16 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/19 11:04:41 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/19 11:19:32 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fract-ol
 
-#SRC_DIR = src
+SRC_DIR = src
 OBJ_DIR = build
 INC = include
 PATH_MLX = minilibx-linux
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra
 #CFLAGS += -Werror
 MLXFLAG = -lmlx -lXext -lX11
 
-SRCS = main.c draw.c event.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/event.c $(SRC_DIR)/colors.c
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
@@ -35,7 +35,8 @@ $(NAME) : $(OBJS)
 
 $(OBJ_DIR)/%.o: %.c
 	@echo Compiling $<
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+#@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -I$(INC) $(MLXFLAG) -c $< -o $@
 
 .PHONY: clean

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/19 11:06:27 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:12:03 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,4 @@ void draw_fractal(t_vars vars);
 int close_window(int keycode, t_vars *vars);
 void my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int calculate_pixel_color(int x, int y);
+int	create_trgb(int t, int r, int g, int b);
