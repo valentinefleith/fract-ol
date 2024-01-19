@@ -6,7 +6,7 @@
 #    By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 08:59:16 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/19 11:19:32 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/19 11:35:29 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra
 #CFLAGS += -Werror
 MLXFLAG = -lmlx -lXext -lX11
 
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/event.c $(SRC_DIR)/colors.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/events.c $(SRC_DIR)/colors.c
 
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
