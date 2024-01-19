@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/19 10:55:34 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:06:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,19 @@
 
 int calculate_pixel_color(int x, int y)
 {
-	double zoom = 200;
+	double zoom = 400;
 	double x1 = -2.1;
 	double x2 = 0.6;
 	double y1 = -1.2;
 	double y2 = 1.2;
-	//t_complex point = {(float)(x - (WIDTH / 2))/zoom + x1, (float)(y - (HEIGHT / 2))/zoom + y1};
-	//t_complex point = {(float)(x /zoom + x1), (float)(y /zoom + y1)};
 	t_complex point;
-	point.real = ((x + x1)/ zoom - 1.8);
+	point.real = ((x + x1)/ zoom - 3 * x2);
 	//point.real = (x / zoom + x1);
-	point.imaginary = ((y + y1) / zoom - 1.2);
+	point.imaginary = ((y + y1) / zoom - y2);
 	//printf("x = %i, y = %i, valeur reelle = %f, valeur imaginaire %f\n", x, y, point.real, point.imaginary);
 	t_complex z;
 	z.real = 0;
 	z.imaginary = 0;
-	//int max = 214748360;
 	int max = 4;
 	for (int i = 0; i < 100; i++)
 	{
