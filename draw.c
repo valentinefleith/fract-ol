@@ -6,15 +6,16 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/19 00:08:10 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:55:34 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract-ol.h"
+#include "include/fract-ol.h"
+#include <stdio.h>
 
 int calculate_pixel_color(int x, int y)
 {
-	int zoom = 100;
+	double zoom = 200;
 	double x1 = -2.1;
 	double x2 = 0.6;
 	double y1 = -1.2;
@@ -22,22 +23,21 @@ int calculate_pixel_color(int x, int y)
 	//t_complex point = {(float)(x - (WIDTH / 2))/zoom + x1, (float)(y - (HEIGHT / 2))/zoom + y1};
 	//t_complex point = {(float)(x /zoom + x1), (float)(y /zoom + y1)};
 	t_complex point;
-	point.real = ((x + x1)/ zoom);
+	point.real = ((x + x1)/ zoom - 1.8);
 	//point.real = (x / zoom + x1);
-	point.imaginary = ((y + y1) / zoom);
+	point.imaginary = ((y + y1) / zoom - 1.2);
+	//printf("x = %i, y = %i, valeur reelle = %f, valeur imaginaire %f\n", x, y, point.real, point.imaginary);
 	t_complex z;
 	z.real = 0;
 	z.imaginary = 0;
 	//int max = 214748360;
 	int max = 4;
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		double tmp = z.real;
 		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
 		z.imaginary = (2 * tmp * z.imaginary) + point.imaginary;
-		//point.real = z.real;
-		//point.imaginary = z.imaginary;
-		if (z.real * z.real + z.imaginary * z.imaginary > 4)
+		if (z.real * z.real + z.imaginary * z.imaginary > max)
 		{
 			return 0xFFFFFFFF;
 		}
