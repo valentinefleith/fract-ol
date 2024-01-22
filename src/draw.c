@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/22 18:31:38 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 00:13:26 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int calculate_pixel_color(int x, int y)
 	double y2 = 1.2;
 	t_complex point;
 	//point.real = ((x + x1)/ zoom - 3 * x2 - 0.2);
-	point.real = ((x + x1)/ zoom - 3 * x2 - 0.8) * 0.2;
+	point.real = ((x + x1)/ zoom - 3 * x2 - 1.5) * 0.1;
 	//point.real = (x / zoom + x1);
 	//point.imaginary = ((y + y1) / zoom - y2);
-	point.imaginary = ((y + y1) / zoom - y2 - 4) * 0.2;
+	point.imaginary = ((y + y1) / zoom - y2 - 7) * 0.1;
 	t_complex z;
 	z.real = 0;
 	z.imaginary = 0;
 	int max = 4;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 200; i++)
 	{
 		double tmp = z.real;
 		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
@@ -38,8 +38,9 @@ int calculate_pixel_color(int x, int y)
 		{
 			if (i)
 				//return 0x0011FC92 * i;
-				return 0x00119EFC * i;
-				//return 0x00FCBE11 * i;
+				//return 0x00119EFC;
+				//return 0x00119EFC;
+				return 0x00FCBE11 * i;
 				//return colorset * i;
 				//return 0x00FC11DD * i;
 			return 0x00FFFFFF;
