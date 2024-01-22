@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/19 11:19:51 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:21:35 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ int calculate_pixel_color(int x, int y)
 		z.imaginary = (2 * tmp * z.imaginary) + point.imaginary;
 		if (z.real * z.real + z.imaginary * z.imaginary > max)
 		{
-			return 0xFFFFFFFF;
+			if (i)
+				return 0x00FCBE11 * i;
+				//return 0x00FC11DD * i;
+				//return create_trgb(0, 255 / i, 100, 255 / i);
+			return 0x00FFFFFF;
+			//return 0x00FFFFFF;
 		}
 	}
 	return 0;
