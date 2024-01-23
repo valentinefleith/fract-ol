@@ -6,13 +6,13 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:31:55 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:40:35 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int calculate_pixel_color(int x, int y)
+int calculate_pixel_color(int x, int y, t_fractal *fractal)
 {
 	double zoom = 400;
 	double x1 = -2.1;
@@ -50,29 +50,30 @@ int calculate_pixel_color(int x, int y)
 	return 0;
 }
 
-void calculate_and_put_pixels(t_img *img)
+void calculate_and_put_pixels(t_fractal *fractal)
 {
 	
 	for (int i = 0; i < WIDTH; i++)
 	{
 		for (int j = 0; j < HEIGHT; j++)
 		{
-			int color = calculate_pixel_color(i, j);
+			int color = calculate_pixel_color(i, j, fractal);
 			if (color)
-				my_mlx_pixel_put(img, i, j, color);
+				my_mlx_pixel_put(&fractal->img, i, j, color);
 			//0x00FF0A80
 		}
 	}
 }
 
-void draw_fractal(t_fractal fractal)
+void draw_fractal(t_fractal *fractal)
 {
 	t_img img;
 
-	img.img = mlx_new_image(fractal.mlx, WIDTH, HEIGHT);
+	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	calculate_and_put_pixels(&img);
-	mlx_put_image_to_window(fractal.mlx, fractal.win, img.img, 0, 0);
+	fractal->img = img;
+	calculate_and_put_pixels(fractal);
+	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
 
 }
 

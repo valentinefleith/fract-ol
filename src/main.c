@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:31:37 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:39:20 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
 		return (MALLOC_ERROR);
 
 	}
-	draw_fractal(fractal);
+	draw_fractal(&fractal);
 	
 	//mlx_mouse_hook(fractal.win, mouse_hook, &vars);
 	mlx_hook(fractal.win, 4, 0, manage_events, &fractal);
