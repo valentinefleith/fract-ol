@@ -6,13 +6,13 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:40:35 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:45:06 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int calculate_pixel_color(int x, int y, t_fractal *fractal)
+int calculate_pixel_color(t_pixel px, t_fractal *fractal)
 {
 	double zoom = 400;
 	double x1 = -2.1;
@@ -20,10 +20,10 @@ int calculate_pixel_color(int x, int y, t_fractal *fractal)
 	double y1 = -1.2;
 	double y2 = 1.2;
 	t_complex point;
-	point.real = ((x + x1)/ zoom - 3 * x2 - 0.2);
+	point.real = ((px.x + x1)/ zoom - 3 * x2 - 0.2);
 	//point.real = ((x + x1)/ zoom - 3 * x2 - 1.5) * 0.1;
 	//point.real = (x / zoom + x1);
-	point.imaginary = ((y + y1) / zoom - y2);
+	point.imaginary = ((px.y + y1) / zoom - y2);
 	//point.imaginary = ((y + y1) / zoom - y2 - 7) * 0.1;
 	t_complex z;
 	z.real = 0;
@@ -52,14 +52,16 @@ int calculate_pixel_color(int x, int y, t_fractal *fractal)
 
 void calculate_and_put_pixels(t_fractal *fractal)
 {
-	
+	t_pixel px;	
 	for (int i = 0; i < WIDTH; i++)
 	{
 		for (int j = 0; j < HEIGHT; j++)
 		{
-			int color = calculate_pixel_color(i, j, fractal);
+			px.x = i;
+			px.y = j;
+			int color = calculate_pixel_color(px, fractal);
 			if (color)
-				my_mlx_pixel_put(&fractal->img, i, j, color);
+				my_mlx_pixel_put(&fractal->img, px.x, px.y, color);
 			//0x00FF0A80
 		}
 	}
