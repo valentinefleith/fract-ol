@@ -6,9 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:24:44 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:31:08 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FRACTOL_H
+#define FRACTOL_H
 
 #include <mlx.h>
 #include <stdlib.h>
@@ -68,3 +71,5 @@ int manage_events(int keycode, t_fractal *fractal);
 void my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int calculate_pixel_color(int x, int y);
 int	create_trgb(int t, int r, int g, int b);
+
+#endif

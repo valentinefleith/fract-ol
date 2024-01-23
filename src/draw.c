@@ -6,11 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:25:48 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:31:55 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fract-ol.h"
+#include "fractol.h"
 
 int calculate_pixel_color(int x, int y)
 {
