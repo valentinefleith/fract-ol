@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:45:06 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:49:08 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 //#define HEIGHT 480
 #define WIDTH 1080
 //#define WIDTH 540
+//
+#define WHITE 0x00FFFFFF
 
 
 typedef struct s_img
@@ -78,5 +80,7 @@ int manage_events(int keycode, t_fractal *fractal);
 void my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int calculate_pixel_color(t_pixel px, t_fractal *fractal);
 int	create_trgb(int t, int r, int g, int b);
+int change_colors(t_fractal *fractal);
+void fractal_refresh(t_fractal *fractal);
 
 #endif

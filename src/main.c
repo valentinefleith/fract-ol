@@ -6,13 +6,22 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 17:39:20 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:45:56 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-//void fractal_refresh(t_fr)
+void fractal_refresh(t_fractal *fractal)
+{
+	t_img new_img;
+	mlx_destroy_image(fractal->mlx, fractal->img.img);
+	new_img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel, &new_img.line_length, &new_img.endian);
+	fractal->img = new_img;
+	calculate_and_put_pixels(fractal);
+	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
+}
 
 int main(void)
 {
