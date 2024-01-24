@@ -6,19 +6,24 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 21:37:57 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:11:36 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fractol.h"
+#include <stdio.h>
 
 int manage_events(int keycode, t_fractal *fractal)
 {
 	if (keycode == 65307)
 		return close_window(fractal);
-	if (keycode == 0x0063)
+	if (keycode == 0x0063) // c
 		return change_colors(fractal);
+	if (keycode == 0x0065) // e
+		return shiftreal(fractal, '+');
+	if (keycode == 0x0071) // q
+		return shiftreal(fractal, '-');
 	return 0;
 }
 
@@ -29,6 +34,16 @@ int close_window(t_fractal *fractal)
 	free(fractal->mlx);
 	exit(0);
 	return (0);
+}
+
+int shiftreal(t_fractal *fractal, char direction)
+{
+	if (direction == '+')
+		fractal->shiftx += 0.1;
+	else 
+		fractal->shiftx -= 0.1;
+	fractal_refresh(fractal);
+	return 0;
 }
 
 int change_colors(t_fractal *fractal)
