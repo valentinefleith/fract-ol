@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:11:36 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:18:10 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int manage_events(int keycode, t_fractal *fractal)
 		return shiftreal(fractal, '+');
 	if (keycode == 0x0071) // q
 		return shiftreal(fractal, '-');
+	if (keycode == 0x0077) // w
+		return shiftimaginary(fractal, '-');
+	if (keycode == 0x0073)
+		return shiftimaginary(fractal, '+');
 	return 0;
 }
 
@@ -42,6 +46,16 @@ int shiftreal(t_fractal *fractal, char direction)
 		fractal->shiftx += 0.1;
 	else 
 		fractal->shiftx -= 0.1;
+	fractal_refresh(fractal);
+	return 0;
+}
+
+int shiftimaginary(t_fractal *fractal, char direction)
+{
+	if (direction == '+')
+		fractal->shifty += 0.1;
+	else 
+		fractal->shifty -= 0.1;
 	fractal_refresh(fractal);
 	return 0;
 }

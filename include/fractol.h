@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:09:04 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:17:43 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int	create_trgb(int t, int r, int g, int b);
 int change_colors(t_fractal *fractal);
 void fractal_refresh(t_fractal *fractal);
 int shiftreal(t_fractal *fractal, char direction);
+int shiftimaginary(t_fractal *fractal, char direction);
 
 #endif
