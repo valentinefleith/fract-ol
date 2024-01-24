@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 15:25:44 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:50:38 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <mlx.h>
 #include <stdlib.h>
+
+#include "libft.h"
 
 #define MALLOC_ERROR 1
 
