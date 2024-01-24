@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:21:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:25:44 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //#define HEIGHT 480
 #define WIDTH 1080
 //#define WIDTH 540
-//
+#define ZOOM 400
 #define WHITE 0x00FFFFFF
 
 
@@ -87,5 +87,8 @@ void fractal_refresh(t_fractal *fractal);
 int shiftreal(t_fractal *fractal, char direction);
 int shiftimaginary(t_fractal *fractal, char direction);
 int zoom_in(t_fractal *fractal);
+int zoom_out(t_fractal *fractal);
+t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
+int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 
 #endif

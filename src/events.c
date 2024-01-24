@@ -6,12 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:31:34 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:57:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "fractol.h"
+#include "../include/fractol.h"
 #include <stdio.h>
 
 int manage_events(int keycode, t_fractal *fractal)
@@ -30,6 +30,8 @@ int manage_events(int keycode, t_fractal *fractal)
 		return shiftimaginary(fractal, '+');
 	if (keycode == 0x0070) // p
 		return zoom_in(fractal);
+	if (keycode == 0x006d) // m
+		return zoom_out(fractal);
 	return 0;
 }
 
@@ -49,12 +51,19 @@ int zoom_in(t_fractal *fractal)
 	return 0;
 }
 
+int zoom_out(t_fractal *fractal)
+{
+	fractal->zoom /= 0.9;
+	fractal_refresh(fractal);
+	return 0;
+}
+
 int shiftreal(t_fractal *fractal, char direction)
 {
 	if (direction == '+')
-		fractal->shiftx += 0.1;
+		fractal->shiftx += 0.2;
 	else 
-		fractal->shiftx -= 0.1;
+		fractal->shiftx -= 0.2;
 	fractal_refresh(fractal);
 	return 0;
 }
