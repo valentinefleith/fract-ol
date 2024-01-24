@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 18:10:06 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 08:53:41 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 int calculate_pixel_color(t_pixel px, t_fractal *fractal)
 {
 	double zoom = 400;
-	double x1 = -2.1;
-	double x2 = 0.6;
-	double y1 = -1.2;
-	double y2 = 1.2;
+	//double x1 = -2.1;
+	//double x2 = 0.6;
+	//double y1 = -1.2;
+	//double y2 = 1.2;
 	t_complex point;
-	point.real = ((px.x + x1)/ zoom - 3 * x2 - 0.2);
+	point.real = ((px.x + fractal->xmin)/ zoom - 3 * fractal->xmax - 0.2) + fractal->shiftx;
 	//point.real = ((px.x + x1)/ zoom - 3 * x2 - 1.5) * 0.1;
 	//point.real = (x / zoom + x1);
-	point.imaginary = ((px.y + y1) / zoom - y2);
+	point.imaginary = ((px.y + fractal->ymin) / zoom - fractal->ymax) + fractal->shifty;
 	//point.imaginary = ((px.y + y1) / zoom - y2 - 7) * 0.1;
 	t_complex z;
 	z.real = 0;
@@ -37,14 +37,8 @@ int calculate_pixel_color(t_pixel px, t_fractal *fractal)
 		if (z.real * z.real + z.imaginary * z.imaginary > max)
 		{
 			if (i)
-				//return 0x0011FC92 * i;
-				//return 0x00119EFC;
-				//return 0x00119EFC;
 				return fractal->colorset * i;
-				//return colorset * i;
-				//return 0x00FC11DD * i;
 			return WHITE;
-			//return 0x00FFFFFF;
 		}
 	}
 	return 0;
@@ -75,6 +69,12 @@ void draw_fractal(t_fractal *fractal)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	fractal->img = img;
 	fractal->colorset = 0x00119EFC;
+	fractal->xmin = -2.1;
+	fractal->xmax = 0.6;
+	fractal->ymin = -1.2;
+	fractal->ymax = 1.2;
+	fractal->shiftx = 0;
+	fractal->shifty = 0;
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
 

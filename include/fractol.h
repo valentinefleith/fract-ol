@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/23 18:49:08 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 08:53:41 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_fractal
 	double ymin;
 	double ymax;
 	double zoom;
+	double shiftx;
+	double shifty;
 	int colorset;
 	t_complex current_point;
 
