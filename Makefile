@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/24 15:40:50 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/24 15:46:18 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,10 @@ MLX_NAME = libmlx.a
 MLX = $(MLX_PATH)/$(MLX_NAME)
 MLXFLAGS = -lXext -lX11
 
+LIBFT_PATH = libft
+LIBFT_NAME = libft.a
+LIBFT = $(LIBFT_PATH)/$(LIBFT_NAME)
+
 INC = -Iinclude -Ilibft -I$(MLX_PATH)
 
 SRC_DIR = src
@@ -31,7 +35,7 @@ OBJ_DIR = build
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all
-all: $(MLX) $(NAME)
+all: $(MLX) $(LIBFT) $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
 	@echo Compiling $<
@@ -42,14 +46,19 @@ $(MLX):
 	@echo "Making MLX"
 	@make -sC $(MLX_PATH)
 
+$(LIBFT):
+	@echo "Making Libft"
+	@make -sC $(LIBFT_PATH)
+
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(INC) $(MLXFLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) $(MLXFLAGS)
 	@echo "Fract-ol ready."
 
 .PHONY: clean
 clean:
 	@rm -rf $(OBJ_DIR)
 	@make clean -C $(MLX_PATH)
+	@make clean -C $(LIBFT_PATH)
 
 .PHONY: fclean
 fclean: clean

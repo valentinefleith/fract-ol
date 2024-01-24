@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:44:12 by vafleith          #+#    #+#              #
-#    Updated: 2023/11/28 16:31:56 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/24 15:47:32 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(NAME): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 
 %.o: %.c
-	@echo Compiling $<
+#@echo Compiling $<
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: bonus
