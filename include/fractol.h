@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:17:43 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:21:30 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int change_colors(t_fractal *fractal);
 void fractal_refresh(t_fractal *fractal);
 int shiftreal(t_fractal *fractal, char direction);
 int shiftimaginary(t_fractal *fractal, char direction);
+int zoom_in(t_fractal *fractal);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 09:18:10 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:24:20 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int manage_events(int keycode, t_fractal *fractal)
 		return shiftimaginary(fractal, '-');
 	if (keycode == 0x0073)
 		return shiftimaginary(fractal, '+');
+	if (keycode == 0x0070)
+		return zoom_in(fractal);
 	return 0;
 }
 
@@ -38,6 +40,13 @@ int close_window(t_fractal *fractal)
 	free(fractal->mlx);
 	exit(0);
 	return (0);
+}
+
+int zoom_in(t_fractal *fractal)
+{
+	fractal->zoom *= 0.9;
+	fractal_refresh(fractal);
+	return 0;
 }
 
 int shiftreal(t_fractal *fractal, char direction)
