@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/24 15:25:58 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:16:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal)
 {
 	t_complex point;
 
-	point.real = (((px.x + fractal->xmin)/ ZOOM - 3 * fractal->xmax - 0.2)) * fractal->zoom + (fractal->shiftx );
+	point.real = (((px.x + fractal->xmin)/ ZOOM - 3 * fractal->xmax - 0.2)) * fractal->zoom + (fractal->shiftx);
 	point.imaginary = (((px.y + fractal->ymin) / ZOOM - fractal->ymax)) * fractal -> zoom + (fractal->shifty);
 	return point;
 }
