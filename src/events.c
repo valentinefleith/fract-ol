@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/25 13:22:55 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/25 17:51:58 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int manage_events(int keycode, t_fractal *fractal)
 	if (keycode == 65307)
 		return close_window(fractal);
 	if (keycode == 0x0063) // c
-		return change_colors(fractal);
+	{ 	printf("%X\n", fractal->colorset);
+		return change_colors(fractal);}
 	if (keycode == 0x0065) // e
 		return shiftreal(fractal, '+');
 	if (keycode == 0x0071) // q
@@ -80,15 +81,16 @@ int shiftimaginary(t_fractal *fractal, char direction)
 
 int change_colors(t_fractal *fractal)
 {
-	//int colors[] = {0x0011FC92, 0x00119EFC, 0x00FCBE11};
-	//int i = 0;
-	if (fractal->colorset == 0x00119EFC)
-		fractal->colorset = 0x00FCBE11;
-	else if (fractal->colorset == 0x00FCBE11)
-		fractal->colorset = 0x0011FC92;
-	else if (fractal->colorset == 0x0011FC92)
-		fractal->colorset = 0x00119EFC;
-
+	//int colors[] = {0x0011FC92, 0x00119EFC, 0x00FCBE11, 0x00AB3434};
+	fractal->colorset = fractal->colorset * 0.7 + 5;
+	//fractal->colorset = fractal->colorset * 1.01 + 5;
+//	if (fractal->colorset == 0x00119EFC)
+//		fractal->colorset = 0x00FCBE11;
+//	else if (fractal->colorset == 0x00FCBE11)
+//		fractal->colorset = 0x0011FC92;
+//	else if (fractal->colorset == 0x0011FC92)
+//		fractal->colorset = 0x00119EFC;
+//
 	fractal_refresh(fractal);	
 	return 0;
 }
