@@ -6,12 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/25 17:51:58 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:47:19 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../include/fractol.h"
+#include "fractol.h"
 #include <stdio.h>
 
 int manage_events(int keycode, t_fractal *fractal)

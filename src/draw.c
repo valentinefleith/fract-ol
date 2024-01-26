@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/25 13:57:53 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:23:44 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void calculate_and_put_pixels(t_fractal *fractal)
 		{
 			px.x = i;
 			px.y = j;
-			int color = calculate_mandelbrot(px, fractal);
+			//int color = calculate_mandelbrot(px, fractal);
+			int color = calculate_julia(px, fractal);
 			if (color)
 				my_mlx_pixel_put(&fractal->img, px.x, px.y, color);
 			//0x00FF0A80
