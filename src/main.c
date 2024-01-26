@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 10:47:20 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:53:16 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ void fractal_refresh(t_fractal *fractal)
 	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
 	t_fractal fractal;
-
+	
+	if (argc != 2)
+		return 1;
 	fractal.mlx = mlx_init();
 	if (fractal.mlx == NULL)
 		return (MALLOC_ERROR);
@@ -40,6 +42,10 @@ int main(void)
 		return (MALLOC_ERROR);
 
 	}
+	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
+		fractal.set = 0;
+	if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
+		fractal.set = 1;
 	draw_fractal(&fractal);
 	
 	//mlx_mouse_hook(fractal.win, mouse_hook, &vars);
