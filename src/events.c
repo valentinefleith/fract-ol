@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 14:48:10 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:07:09 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int key_events(int keycode, t_fractal *fractal)
 	if (keycode == 0x006d) // m
 		return zoom_out(fractal);
 	return 0;
+}
+
+int mouse_events(int button, t_fractal *fractal)
+{
+	if (button == 1)
+		printf("mouse pressed\n");
 }
 
 int close_window(t_fractal *fractal)
