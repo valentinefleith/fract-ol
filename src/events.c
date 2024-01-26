@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 15:07:09 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:21:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int key_events(int keycode, t_fractal *fractal)
 
 int mouse_events(int button, t_fractal *fractal)
 {
-	if (button == 1)
-		printf("mouse pressed\n");
+	if (button == 4)
+		return shiftreal(fractal, '+');
 }
 
 int close_window(t_fractal *fractal)
