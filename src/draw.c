@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 14:30:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 17:31:16 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void draw_fractal(t_fractal *fractal)
 	fractal->zoom = 1;
 	fractal->shiftx = 0;
 	fractal->shifty = 0;
+	fractal->current_point.real = fractal->xmin;
+	fractal->current_point.imaginary = fractal->ymin;
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
 
