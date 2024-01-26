@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 13:42:22 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:30:12 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int change_colors(t_fractal *fractal)
 	//fractal->colorset = fractal->colorset * 0.7 + 5;
 	fractal->colorset = fractal->colorset * 1.01 + 5;
 //	if (fractal->colorset == 0x00119EFC)
-//		fractal->colorset = 0x00FCBE11;
+	//fractal->colorset = 0x00FCBE11;
 //	else if (fractal->colorset == 0x00FCBE11)
 //		fractal->colorset = 0x0011FC92;
 //	else if (fractal->colorset == 0x0011FC92)

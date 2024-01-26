@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 13:48:46 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:30:30 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void draw_fractal(t_fractal *fractal)
 	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	fractal->img = img;
-	//fractal->colorset = 0x0011FC92;
-	fractal->colorset = 0x00121212;
+	fractal->colorset = 0x0011FC92;
+	//fractal->colorset = 0x00121212;
 	fractal->xmin = -2.1;
 	fractal->xmax = 0.6;
 	fractal->ymin = -1.2;
