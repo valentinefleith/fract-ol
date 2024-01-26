@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 14:30:12 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:48:10 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fractol.h"
 #include <stdio.h>
 
-int manage_events(int keycode, t_fractal *fractal)
+int key_events(int keycode, t_fractal *fractal)
 {
 	if (keycode == 65307)
 		return close_window(fractal);
