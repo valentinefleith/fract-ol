@@ -6,12 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/26 15:02:22 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:08:27 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+#include <stdio.h>
 void fractal_refresh(t_fractal *fractal)
 {
 	t_img new_img;
@@ -49,9 +49,10 @@ int main(int argc, char **argv)
 	draw_fractal(&fractal);
 	
 	//mlx_mouse_hook(fractal.win, mouse_hook, &vars);
-	mlx_hook(fractal.win, 4, 0, key_events, &fractal);
-	mlx_key_hook(fractal.win, key_events, &fractal);
+	//mlx_hook(fractal.win, 4, 0, key_events, &fractal);
+	//mlx_hook(fractal.win, 4, 0, mouse_events, &fractal);
 	mlx_mouse_hook(fractal.win, mouse_events, &fractal);
+	mlx_key_hook(fractal.win, key_events, &fractal);
 
 	// Lancer la boucle d'evenements
 	mlx_loop(fractal.mlx);
