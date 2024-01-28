@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/27 18:06:55 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:33:42 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int shiftreal(t_fractal *fractal, char direction)
 
 int shiftimaginary(t_fractal *fractal, char direction)
 {
-	if (direction == '+')
+	if (direction == '-')
 		fractal->shifty += (0.1 * fractal->zoom);
 	else 
 		fractal->shifty -= (0.1 * fractal->zoom);
