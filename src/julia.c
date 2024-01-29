@@ -6,16 +6,16 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/27 18:09:44 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:39:56 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 int calculate_julia(t_pixel px, t_fractal *fractal)
 {
 	t_complex point;
-	point = convert_pixel_into_complex(px, fractal);
+	point = rescale_pixel(px, fractal);
 	t_complex c;
 	//c.real = fractal->current_point.real;
 	//c.imaginary = fractal->current_point.imaginary;

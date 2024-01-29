@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 10:14:57 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:47:26 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int mouse_events(int button, t_fractal *fractal)
 		printf("clicked\n");
 		//printf("%f\n", fractal->zoom);
 		return zoom_out(fractal);}
+	return 0;
 }
 
 int close_window(t_fractal *fractal)
