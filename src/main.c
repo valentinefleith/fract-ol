@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/28 14:38:17 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:03:43 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main(int argc, char **argv)
 	//mlx_hook(fractal.win, 4, 0, mouse_events, &fractal);
 	mlx_mouse_hook(fractal.win, mouse_events, &fractal);
 	mlx_key_hook(fractal.win, key_events, &fractal);
+	//mlx_hook(fractal.win, 1, 0, mouse_events, &fractal);
 
 	// Lancer la boucle d'evenements
 	mlx_loop(fractal.mlx);
