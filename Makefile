@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/29 16:05:50 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/29 16:10:13 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ INC = -Iinclude -Ilibft -I$(MLX_PATH)
 
 SRC_DIR = src
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/events.c \
-	   $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/zoom.c
+	   $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/zoom.c \
+	   $(SRC_DIR)/shift.c
 
 OBJ_DIR = build
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)

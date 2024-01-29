@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 11:16:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:11:37 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void draw_fractal(t_fractal *fractal)
 	fractal->img = img;
 	//fractal->colorset = 0x0011FC92;
 	//fractal->colorset = 0x00121212;
-	fractal->colorset = 0x00A81513;
+	//fractal->colorset = 0x00A81513;
+	fractal->colorset = 0x00ffef7a;
 	fractal->xmin = -2.1;
 	fractal->xmax = 0.6;
 	fractal->ymin = -1.2;

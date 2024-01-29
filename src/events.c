@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 16:05:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:09:42 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,6 @@ int change_julia(t_fractal *fractal)
 	return 0;
 }
 
-
-int shiftreal(t_fractal *fractal, char direction)
-{
-	if (direction == '+')
-		fractal->shiftx += (0.2 * fractal->zoom);
-	else 
-		fractal->shiftx -= (0.2 * fractal->zoom);
-	fractal_refresh(fractal);
-	return 0;
-}
-
-int shiftimaginary(t_fractal *fractal, char direction)
-{
-	if (direction == '-')
-		fractal->shifty += (0.1 * fractal->zoom);
-	else 
-		fractal->shifty -= (0.1 * fractal->zoom);
-	fractal_refresh(fractal);
-	return 0;
-}
 
 int change_colors(t_fractal *fractal)
 {
