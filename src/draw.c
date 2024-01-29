@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 10:49:42 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:16:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void draw_fractal(t_fractal *fractal)
 	fractal->ymin = -1.2;
 	fractal->ymax = 1.2;
 	fractal->zoom = 1;
+	fractal->max_iterations = 20;
 	if (fractal->set == 1)
 		fractal->shiftx = 0.7;
 	else 
