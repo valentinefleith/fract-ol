@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 11:03:43 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:55:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int main(int argc, char **argv)
 	t_fractal fractal;
 	
 	if (argc != 2)
+	{
+		ft_printf("Usage : ./fract-ol fractal-name\n");
 		return 1;
+	}
 	fractal.mlx = mlx_init();
 	if (fractal.mlx == NULL)
 		return (1);

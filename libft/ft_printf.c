@@ -6,11 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:54:08 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/04 17:03:54 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:53:44 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_print_arg(char format, va_list arguments);
 

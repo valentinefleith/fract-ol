@@ -6,7 +6,7 @@
 /*   By: val <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:33:55 by val               #+#    #+#             */
-/*   Updated: 2023/10/04 09:41:51 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:57:10 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "ft_printf.h"
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

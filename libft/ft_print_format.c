@@ -6,11 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:37:54 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/04 17:02:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:54:03 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_print_char(char c)
 {

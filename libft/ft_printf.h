@@ -6,14 +6,14 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 23:27:19 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/04 17:02:48 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:57:11 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 # define LOWER_HEX "0123456789abcdef"

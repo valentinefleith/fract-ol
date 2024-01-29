@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:44:12 by vafleith          #+#    #+#              #
-#    Updated: 2024/01/24 15:47:32 by vafleith         ###   ########.fr        #
+#    Updated: 2024/01/29 15:53:14 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC=cc
 CFLAGS= -Wall -Wextra -Werror
 
 LIB_H = libft.h
+PRINTF_H = ft_printf.h
 
 
 SRCS	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -26,17 +27,16 @@ SRCS	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 			ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-			ft_putnbr_fd.c 
-
-BONUS = ft_lstnew.c	\
-	ft_lstadd_front.c	\
-	ft_lstsize.c		\
-	ft_lstlast.c		\
-	ft_lstadd_back.c	\
-	ft_lstdelone.c	\
-	ft_lstclear.c		\
-	ft_lstiter.c		\
-	ft_lstmap.c
+			ft_putnbr_fd.c ft_printf.c ft_print_format.c \
+			ft_lstnew.c	\
+			ft_lstadd_front.c	\
+			ft_lstsize.c		\
+			ft_lstlast.c		\
+			ft_lstadd_back.c	\
+			ft_lstdelone.c	\
+			ft_lstclear.c		\
+			ft_lstiter.c		\
+			ft_lstmap.c
 
 
 OBJECTS = $(SRCS:%.c=%.o)
