@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/28 14:33:42 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:14:57 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int key_events(int keycode, t_fractal *fractal)
 	if (keycode == 0x0073) // s
 		return shiftimaginary(fractal, '+');
 	if (keycode == 0x0070) // p
-	{printf("%f\n", fractal->zoom);
-		return zoom_in(fractal);}
+		return zoom_in(fractal);
 	if (keycode == 0x006d) // m
 		return zoom_out(fractal);
 	if (keycode == 0x006a) //j
@@ -40,9 +39,9 @@ int key_events(int keycode, t_fractal *fractal)
 
 int mouse_events(int button, t_fractal *fractal)
 {
-	if (button == 1){
+	if (button == 2 ){
 		printf("clicked\n");
-		printf("%f\n", fractal->zoom);
+		//printf("%f\n", fractal->zoom);
 		return zoom_out(fractal);}
 }
 
@@ -72,7 +71,7 @@ int zoom_in(t_fractal *fractal)
 
 int zoom_out(t_fractal *fractal)
 {
-	fractal->zoom /= 0.9;
+	fractal->zoom /= 0.7;
 	fractal_refresh(fractal);
 	return 0;
 }

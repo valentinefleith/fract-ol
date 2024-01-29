@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/27 16:08:27 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:38:17 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		return 1;
 	fractal.mlx = mlx_init();
 	if (fractal.mlx == NULL)
-		return (MALLOC_ERROR);
+		return (1);
 
 	//Creer une fenetre
 	fractal.win = mlx_new_window(fractal.mlx, WIDTH, HEIGHT, "test window");
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	{
 		mlx_destroy_display(fractal.mlx);
 		free(fractal.mlx);
-		return (MALLOC_ERROR);
+		return (1);
 
 	}
 	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
