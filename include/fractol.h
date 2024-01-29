@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 11:13:56 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:22:33 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 //#define HEIGHT 480
 #define WIDTH 1080
 //#define WIDTH 540
-#define MAX_ITERATIONS 50
+#define MAX_ITERATIONS 100
 #define WHITE 0x00FFFFFF
 
 

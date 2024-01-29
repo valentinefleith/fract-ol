@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 11:16:22 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:23:27 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int change_julia(t_fractal *fractal)
 
 int zoom_in(t_fractal *fractal)
 {
-	fractal->zoom *= 0.8;
-	fractal->max_iterations++;
+	fractal->zoom *= 0.9;
+	//fractal->max_iterations++;
 	fractal_refresh(fractal);
 	return 0;
 }
@@ -76,7 +76,7 @@ int zoom_in(t_fractal *fractal)
 int zoom_out(t_fractal *fractal)
 {
 	fractal->zoom /= 0.7;
-	fractal->max_iterations--;
+	//fractal->max_iterations--;
 	fractal_refresh(fractal);
 	return 0;
 }
