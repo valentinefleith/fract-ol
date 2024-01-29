@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 11:22:33 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:33:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int shiftreal(t_fractal *fractal, char direction);
 int shiftimaginary(t_fractal *fractal, char direction);
 int zoom_in(t_fractal *fractal);
 int zoom_out(t_fractal *fractal);
-int change_julia(t_fractal *fractal);
+int change_juliax(t_fractal *fractal);
+int change_juliay(t_fractal *fractal);
 t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal);
 int calculate_mandelbrot(t_pixel px, t_fractal *fractal);

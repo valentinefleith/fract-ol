@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 16:09:42 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:47:57 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int key_events(int keycode, t_fractal *fractal)
 	if (keycode == 0x006d) // m
 		return zoom_out(fractal);
 	if (keycode == 0x006a) //j
-		return change_julia(fractal);
+		return change_juliax(fractal);
+	if (keycode == 0x006b)
+		return change_juliay(fractal);
 	return 0;
 }
 
@@ -48,6 +50,7 @@ int mouse_events(int button, int x, int y, t_fractal *fractal)
 	if (button == 1)
 	{
 		ft_printf("mouse position : x:%i y:%i\n", x, y);
+		return zoom_and_shift(fractal, x, y);
 	}
 	return 0;
 }
@@ -61,10 +64,16 @@ int close_window(t_fractal *fractal)
 	return (0);
 }
 
-int change_julia(t_fractal *fractal)
+int change_juliax(t_fractal *fractal)
 {
 	fractal->current_point.real += 0.01;
-	fractal->current_point.imaginary += 0.1;
+	fractal_refresh(fractal);
+	return 0;
+}
+
+int change_juliay(t_fractal *fractal)
+{
+	fractal->current_point.imaginary += 0.01;
 	fractal_refresh(fractal);
 	return 0;
 }
@@ -74,6 +83,7 @@ int change_colors(t_fractal *fractal)
 {
 	//int colors[] = {0x0011FC92, 0x00119EFC, 0x00FCBE11, 0x00AB3434};
 	//fractal->colorset = fractal->colorset * 0.7 + 5;
+	//fractal->colorset = fractal->colorset * 1.5 - 560;
 	fractal->colorset = fractal->colorset * 1.01 + 5;
 	fractal_refresh(fractal);	
 	return 0;
