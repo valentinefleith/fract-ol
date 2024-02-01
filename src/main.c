@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 15:55:15 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:39:29 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,20 @@ void fractal_refresh(t_fractal *fractal)
 	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
 }
 
+void parse_args(int argc, char **argv, t_fractal *fractal)
+{
+	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
+		fractal->set = 0;
+	if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
+		fractal->set = 1;
+	//if (argc > 2)
+}
+
 int main(int argc, char **argv)
 {
 	t_fractal fractal;
 	
-	if (argc != 2)
+	if (argc < 2)
 	{
 		ft_printf("Usage : ./fract-ol fractal-name\n");
 		return 1;
@@ -36,6 +45,7 @@ int main(int argc, char **argv)
 	if (fractal.mlx == NULL)
 		return (1);
 
+	parse_args(argc, argv, &fractal);
 	//Creer une fenetre
 	fractal.win = mlx_new_window(fractal.mlx, WIDTH, HEIGHT, "test window");
 	if (fractal.win == NULL)
@@ -45,10 +55,6 @@ int main(int argc, char **argv)
 		return (1);
 
 	}
-	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
-		fractal.set = 0;
-	if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
-		fractal.set = 1;
 	draw_fractal(&fractal);
 	
 	//mlx_mouse_hook(fractal.win, mouse_hook, &vars);
