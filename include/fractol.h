@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/30 17:38:54 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:57:12 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 #define MALLOC_ERROR 1
 
-#define HEIGHT 960
-//#define HEIGHT 480
-#define WIDTH 1080
-//#define WIDTH 540
-#define MAX_ITERATIONS 100
+//#define HEIGHT 960
+#define HEIGHT 720
+//#define WIDTH 1080
+#define WIDTH 810
+#define MAX_ITERATIONS 70
 #define WHITE 0x00FFFFFF
 
 
@@ -37,12 +37,6 @@ typedef struct s_img
 	int endian; // Format de stockage des couleurs (BE ou LE)
 }		t_img;
 
-//typedef struct s_gui
-//{
-//	void *mlx;
-//	void *win;
-//}
-//	t_gui;
 
 typedef struct s_complex
 {
