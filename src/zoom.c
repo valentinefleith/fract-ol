@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:04:57 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/01 11:59:37 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:28:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int zoom_and_shift(t_fractal *fractal, int x, int y)
 
 	px.x = x;
 	px.y = y;
-	fractal->zoom *= 0.9;
+	fractal->zoom *= 0.95;
+	mouse_pos = rescale_pixel(px, fractal);
 	
-	fractal->shiftx += (rescale_pixel(px, fractal).real * fractal->zoom);
-	fractal->shifty += (rescale_pixel(px, fractal).imaginary * fractal->zoom);
+	fractal->shiftx += (mouse_pos.real * fractal->zoom);
+	fractal->shifty += (mouse_pos.imaginary * fractal->zoom);
 	fractal_refresh(fractal);
 	return 0;
 }
