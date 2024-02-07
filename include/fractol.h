@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/01 12:32:59 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:50:59 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@
 
 #define MALLOC_ERROR 1
 
-//#define HEIGHT 960
-#define HEIGHT 720
-//#define WIDTH 1080
-#define WIDTH 810
+#define HEIGHT 960
+//#define HEIGHT 720
+#define WIDTH 1080
+//#define WIDTH 810
 #define MAX_ITERATIONS 70
 #define WHITE 0x00FFFFFF
+#define BLACK 0x000000
+
+#define LINE_LENGTH 20
 
 
 typedef struct s_img
@@ -93,6 +96,6 @@ t_complex rescale_pixel(t_pixel px, t_fractal *fractal);
 int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 int calculate_julia(t_pixel px, t_fractal *fractal);
 void parse_args(int argc, char **argv, t_fractal *fractal);
-void print_string(t_fractal *fractal);
+void display_commands(t_fractal *fractal);
 
 #endif
