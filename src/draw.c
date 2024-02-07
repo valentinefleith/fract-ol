@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 15:51:41 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:36:17 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,8 @@ void calculate_and_put_pixels(t_fractal *fractal)
 	}
 }
 
-void draw_fractal(t_fractal *fractal)
+static void init_struct(t_fractal *fractal, t_img img)
 {
-	t_img img;
-
-	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	fractal->img = img;
 	fractal->colorset = 0x0011FC92;
 	//fractal->colorset = 0x00121212;
@@ -59,11 +55,22 @@ void draw_fractal(t_fractal *fractal)
 	fractal->shifty = 0;
 	fractal->current_point.real = fractal->xmin;
 	fractal->current_point.imaginary = fractal->ymin;
+
+}
+
+void draw_fractal(t_fractal *fractal)
+{
+	t_img img;
+
+	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	init_struct(fractal, img);
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
 	display_commands(fractal);
 
 }
+
 
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal)
 {
