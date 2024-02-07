@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:04:57 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 16:32:18 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:58:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,12 @@ int zoom_and_shift(t_fractal *fractal, int x, int y)
 	px.y = y;
 	fractal->zoom *= 0.95;
 	mouse_pos = rescale_pixel(px, fractal);
-	printf("%f, %f", mouse_pos.real, mouse_pos.imaginary);	
-	fractal->shiftx += (mouse_pos.real/ (fractal ->xmax/2) * fractal->zoom);
-	fractal->shifty += (mouse_pos.imaginary /(fractal->ymax/2) * fractal->zoom);
+	printf("%f, %f\n", mouse_pos.real, mouse_pos.imaginary);
+	//fractal->shiftx += (mouse_pos.real / (range.real / 2) * fractal->zoom);
+	fractal->shiftx = mouse_pos.real * fractal->zoom;
+	fractal->shifty = mouse_pos.imaginary * fractal->zoom;
+	//fractal->shifty += (mouse_pos.imaginary / (range.imaginary / 2 )* fractal->zoom);
+	printf("shiftx : %f, shifty : %f\n", fractal->shiftx, fractal->shifty);
 	fractal_refresh(fractal);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 16:47:57 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:58:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int mouse_events(int button, int x, int y, t_fractal *fractal)
 	if (button == 5 )
 		return zoom_out(fractal);
 	if (button == 4)
-		return zoom_in(fractal);
+		return zoom_and_shift(fractal, x, y);
+		//return zoom_in(fractal);
 	if (button == 1)
 	{
 		ft_printf("mouse position : x:%i y:%i\n", x, y);

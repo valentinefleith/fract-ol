@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 15:50:59 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:59:26 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 int calculate_julia(t_pixel px, t_fractal *fractal);
 void parse_args(int argc, char **argv, t_fractal *fractal);
 void display_commands(t_fractal *fractal);
+int zoom_and_shift(t_fractal *fractal, int x, int y);
 
 #endif
