@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:04:57 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 16:58:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 00:04:42 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,16 @@ int zoom_out(t_fractal *fractal)
 int zoom_and_shift(t_fractal *fractal, int x, int y)
 {
 	t_pixel px;
-	t_complex mouse_pos;
+	t_complex mouse_pos_before_zoom;
+	t_complex mouse_pos_after_zoom;
 
 	px.x = x;
 	px.y = y;
+    mouse_pos_before_zoom = rescale_pixel(px, fractal);
 	fractal->zoom *= 0.95;
-	mouse_pos = rescale_pixel(px, fractal);
-	printf("%f, %f\n", mouse_pos.real, mouse_pos.imaginary);
-	//fractal->shiftx += (mouse_pos.real / (range.real / 2) * fractal->zoom);
-	fractal->shiftx = mouse_pos.real * fractal->zoom;
-	fractal->shifty = mouse_pos.imaginary * fractal->zoom;
-	//fractal->shifty += (mouse_pos.imaginary / (range.imaginary / 2 )* fractal->zoom);
-	printf("shiftx : %f, shifty : %f\n", fractal->shiftx, fractal->shifty);
+	mouse_pos_after_zoom = rescale_pixel(px, fractal);
+	fractal->shiftx += (mouse_pos_before_zoom.real - mouse_pos_after_zoom.real);
+	fractal->shifty += (mouse_pos_before_zoom.imaginary - mouse_pos_after_zoom.imaginary);
 	fractal_refresh(fractal);
 	return 0;
 }
