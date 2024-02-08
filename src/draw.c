@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 18:51:07 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:23:21 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void init_struct(t_fractal *fractal, t_img img)
 	fractal->ymin = -1.2;
 	fractal->ymax = 1.2;
 	fractal->zoom = 1;
-	fractal->max_iterations = 40;
+	fractal->max_iterations = MIN_ITERATIONS;
 	if (fractal->set == 1)
 		fractal->shiftx = 0.7;
 	else 

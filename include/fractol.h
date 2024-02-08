@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 18:50:53 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:23:39 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 //#define HEIGHT 720
 #define WIDTH 1080
 //#define WIDTH 810
-#define MAX_ITERATIONS 70
+#define MAX_ITERATIONS 80
+#define MIN_ITERATIONS 40
+
 #define WHITE 0x00FFFFFF
 #define BLACK 0x000000
 
@@ -89,10 +91,7 @@ int change_colors(t_fractal *fractal);
 void fractal_refresh(t_fractal *fractal);
 int shiftreal(t_fractal *fractal, char direction);
 int shiftimaginary(t_fractal *fractal, char direction);
-//int zoom_in(t_fractal *fractal);
 int zoom_out(t_fractal *fractal);
-int change_juliax(t_fractal *fractal);
-int change_juliay(t_fractal *fractal);
 t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal);
 int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
@@ -103,5 +102,6 @@ int zoom_in(t_fractal *fractal, int x, int y);
 int change_julias_shape(t_fractal *fractal, int x, int y);
 void display_help(t_fractal *fractal);
 int add_precision(t_fractal *fractal);
+int decrease_precision(t_fractal *fractal);
 
 #endif

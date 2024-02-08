@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:11:16 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:18:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 static void display_string(t_fractal *fractal, int *y, char *str)
 {
-	//mlx_string_put(fractal->mlx, fractal->win, 20, 30, color, "Test string display");
 	int x = (WIDTH - ft_strlen(str)*6) / 2;
-	//int x = 5;
 	mlx_string_put(fractal->mlx, fractal->win, x, *y, WHITE, str);
 	*y += LINE_LENGTH;
 }
 
-static void display_shift(t_fractal *fractal, int *y)
+static void display_command_list(t_fractal *fractal, int *y)
 {
 
 	display_string(fractal, y, "Arrows : Moving");
 	display_string(fractal, y, "Wheel : Zoom");
-	display_string(fractal, y, "E : Add precision");
-	//display_string(fractal, x, y, "bottom arrow : shift bottom");
-	//display_string(fractal, x, y, "up arrow : shift up");
+	display_string(fractal, y, "p : Add precision");
+	display_string(fractal, y, "c : Change colorset");
 }
 
 
@@ -54,7 +51,7 @@ int display_commands(t_fractal *fractal)
 	else if (fractal->set == 1)
 		display_string(fractal, &y, "------- JULIA SET -------");
 	y += LINE_LENGTH;
-	display_shift(fractal, &y);
+	display_command_list(fractal, &y);
 	//display_zoom(fractal, x, &y);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:12:39 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:22:28 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int key_events(int keycode, t_fractal *fractal)
 		return change_colors(fractal);
 	if (keycode == KEY_P)
 		return add_precision(fractal);
+	if (keycode == KEY_M)
+		return decrease_precision(fractal);
 	if (keycode == KEY_RIGHT)
 		return shiftreal(fractal, '+');
 	if (keycode == KEY_LEFT)
@@ -62,6 +64,16 @@ int add_precision(t_fractal *fractal)
 	return 0;
 }
 
+int decrease_precision(t_fractal *fractal)
+{
+	if (fractal->max_iterations > MIN_ITERATIONS)
+	{
+		fractal->max_iterations--;
+		fractal_refresh(fractal);
+	}
+	return 0;
+}
+
 int close_window(t_fractal *fractal)
 {
 	mlx_destroy_window(fractal->mlx, fractal->win);
@@ -69,20 +81,6 @@ int close_window(t_fractal *fractal)
 	free(fractal->mlx);
 	exit(0);
 	return (0);
-}
-
-int change_juliax(t_fractal *fractal)
-{
-	fractal->current_point.real += 0.01;
-	fractal_refresh(fractal);
-	return 0;
-}
-
-int change_juliay(t_fractal *fractal)
-{
-	fractal->current_point.imaginary += 0.01;
-	fractal_refresh(fractal);
-	return 0;
 }
 
 
