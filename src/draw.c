@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 14:49:31 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:51:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ static void init_struct(t_fractal *fractal, t_img img)
 	fractal->shifty = 0;
 	fractal->current_point.real = fractal->xmin;
 	fractal->current_point.imaginary = fractal->ymin;
+	fractal->help = 0;
 
 }
 

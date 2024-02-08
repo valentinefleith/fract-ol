@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 14:48:42 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:51:31 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void display_shift(t_fractal *fractal, int *y)
 
 void display_help(t_fractal *fractal)
 {
-	mlx_string_put(fractal->mlx, fractal->win, 20, 30, BLACK, "Press J to display help");
+	mlx_string_put(fractal->mlx, fractal->win, 20, 30, BLACK, "Press h to display help");
 }
 
 int display_commands(t_fractal *fractal)
@@ -47,7 +47,8 @@ int display_commands(t_fractal *fractal)
 	//int x = WIDTH / 2;
 	int y = 30;
 	t_img background;
-
+	
+	fractal->help = 1;
 	mlx_destroy_image(fractal->mlx, fractal->img.img);
 	background.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	background.addr = mlx_get_data_addr(background.img, &background.bits_per_pixel, &background.line_length, &background.endian);
