@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 13:32:05 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:52:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int key_events(int keycode, t_fractal *fractal)
 	if (keycode == 0x0073) // s
 		return shiftimaginary(fractal, '+');
 	if (keycode == 0x006a) //j
-		return change_juliax(fractal);
+		return display_commands(fractal);
 	if (keycode == 0x006b)
 		return change_juliay(fractal);
 	return 0;
