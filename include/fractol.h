@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:23:39 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:51:39 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal);
 int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 int calculate_julia(t_pixel px, t_fractal *fractal);
-void parse_args(int argc, char **argv, t_fractal *fractal);
+int parse_args(int argc, char **argv, t_fractal *fractal);
 int display_commands(t_fractal *fractal);
 int zoom_in(t_fractal *fractal, int x, int y);
 int change_julias_shape(t_fractal *fractal, int x, int y);
