@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 15:53:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:15:43 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void display_shift(t_fractal *fractal, int x, int *y)
 
 static void display_zoom (t_fractal *fractal, int x, int *y)
 {
-	display_string(fractal, x, y, "P / wheel up : zoom in");
-	display_string(fractal, x, y, "M / wheel down : zoom out");
+	display_string(fractal, x, y, "wheel up : zoom in");
+	display_string(fractal, x, y, "wheel down : zoom out");
 }
 
 void display_commands(t_fractal *fractal)

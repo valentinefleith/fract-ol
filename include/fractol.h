@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/07 16:59:26 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:14:19 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int change_colors(t_fractal *fractal);
 void fractal_refresh(t_fractal *fractal);
 int shiftreal(t_fractal *fractal, char direction);
 int shiftimaginary(t_fractal *fractal, char direction);
-int zoom_in(t_fractal *fractal);
+//int zoom_in(t_fractal *fractal);
 int zoom_out(t_fractal *fractal);
 int change_juliax(t_fractal *fractal);
 int change_juliay(t_fractal *fractal);
@@ -97,6 +97,6 @@ int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 int calculate_julia(t_pixel px, t_fractal *fractal);
 void parse_args(int argc, char **argv, t_fractal *fractal);
 void display_commands(t_fractal *fractal);
-int zoom_and_shift(t_fractal *fractal, int x, int y);
+int zoom_in(t_fractal *fractal, int x, int y);
 
 #endif
