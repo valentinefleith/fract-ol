@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 14:44:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:08:04 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ int calculate_julia(t_pixel px, t_fractal *fractal)
 	t_complex c;
 	c.real = fractal->current_point.real;
 	c.imaginary = fractal->current_point.imaginary;
-	//c.real = -0.8;
-	//c.real = 0.285;
-	//c.imaginary = 0.01;
-	//c.imaginary = 0.00046;
 	int max = 4;
 	for (int i = 0; i < fractal->max_iterations; i++)
 	{
