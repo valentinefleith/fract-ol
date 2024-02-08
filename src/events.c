@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 13:52:15 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:05:00 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int key_events(int keycode, t_fractal *fractal)
 		return close_window(fractal);
 	if (keycode == 0x0063) // c
 		return change_colors(fractal);
-	if (keycode == 0x0065) // e
+	//if (keycode == 0x0065) // e
+	if (keycode == KEY_RIGHT) // e
 		return shiftreal(fractal, '+');
-	if (keycode == 0x0071) // q
+	if (keycode == KEY_LEFT) // q
 		return shiftreal(fractal, '-');
-	if (keycode == 0x0077) // w
+	if (keycode == KEY_UP) // w
 		return shiftimaginary(fractal, '-');
-	if (keycode == 0x0073) // s
+	if (keycode == KEY_DOWN) // s
 		return shiftimaginary(fractal, '+');
 	if (keycode == 0x006a) //j
 		return display_commands(fractal);
@@ -73,9 +74,9 @@ int change_juliay(t_fractal *fractal)
 int change_colors(t_fractal *fractal)
 {
 	//int colors[] = {0x0011FC92, 0x00119EFC, 0x00FCBE11, 0x00AB3434};
-	//fractal->colorset = fractal->colorset * 0.7 + 5;
+	fractal->colorset = fractal->colorset * 0.7 + 5;
 	//fractal->colorset = fractal->colorset * 1.5 - 560;
-	fractal->colorset = fractal->colorset * 1.01 + 5;
+	//fractal->colorset = fractal->colorset * 1.01 + 5;
 	fractal_refresh(fractal);	
 	return 0;
 }
