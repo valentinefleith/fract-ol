@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 18:50:44 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:12:39 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int key_events(int keycode, t_fractal *fractal)
 {
 	if (keycode == KEY_ESC)
 		return close_window(fractal);
-	if (keycode == KEY_C) // c
+	if (keycode == KEY_C)
 		return change_colors(fractal);
-	if (keycode == 0x0065) // e
+	if (keycode == KEY_P)
 		return add_precision(fractal);
 	if (keycode == KEY_RIGHT)
 		return shiftreal(fractal, '+');
@@ -31,12 +31,13 @@ int key_events(int keycode, t_fractal *fractal)
 		return shiftimaginary(fractal, '-');
 	if (keycode == KEY_DOWN)
 		return shiftimaginary(fractal, '+');
-	if (keycode == KEY_H && fractal->help == 0) //j
+	if (keycode == KEY_H && fractal->help == 0) 
 		return display_commands(fractal);
-	if (keycode == KEY_H && fractal->help == 1){
+	if (keycode == KEY_H && fractal->help == 1)
+	{
 		fractal->help = 0;
 		fractal_refresh(fractal);
-	return 0;}
+	}
 	return 0;
 }
 
