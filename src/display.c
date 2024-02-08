@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 13:54:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:12:58 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,6 @@ static void display_zoom (t_fractal *fractal, int x, int *y)
 	display_string(fractal, x, y, "wheel down : zoom out");
 }
 
-static void fill_background(t_fractal *fractal)
-{
-	int i = 0;
-	while (i < HEIGHT)
-	{
-		int j = 0;
-		while (j < WIDTH)
-		{
-			my_mlx_pixel_put(&fractal->img, i, j, BLACK);
-			j++;
-		}
-		i++;
-	}
-}
-
 int display_commands(t_fractal *fractal)
 {
 	int x = WIDTH / 2;
@@ -59,7 +44,6 @@ int display_commands(t_fractal *fractal)
 	background.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	background.addr = mlx_get_data_addr(background.img, &background.bits_per_pixel, &background.line_length, &background.endian);
 	fractal->img = background;
-	fill_background(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, background.img, 0, 0);
 	if (fractal->set == 0)
 		display_string(fractal, x, &y, "----- MANDELBROT SET ------");
