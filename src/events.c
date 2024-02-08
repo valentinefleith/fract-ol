@@ -6,12 +6,13 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 14:13:17 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:49:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fractol.h"
+#include <inttypes.h>
 #include <stdio.h>
 
 int key_events(int keycode, t_fractal *fractal)
@@ -20,14 +21,15 @@ int key_events(int keycode, t_fractal *fractal)
 		return close_window(fractal);
 	if (keycode == 0x0063) // c
 		return change_colors(fractal);
-	//if (keycode == 0x0065) // e
-	if (keycode == KEY_RIGHT) // e
+	if (keycode == 0x0065) // e
+		return add_precision(fractal);
+	if (keycode == KEY_RIGHT)
 		return shiftreal(fractal, '+');
-	if (keycode == KEY_LEFT) // q
+	if (keycode == KEY_LEFT)
 		return shiftreal(fractal, '-');
-	if (keycode == KEY_UP) // w
+	if (keycode == KEY_UP)
 		return shiftimaginary(fractal, '-');
-	if (keycode == KEY_DOWN) // s
+	if (keycode == KEY_DOWN)
 		return shiftimaginary(fractal, '+');
 	if (keycode == 0x006a) //j
 		return display_commands(fractal);
@@ -45,6 +47,16 @@ int mouse_events(int button, int x, int y, t_fractal *fractal)
 		return zoom_in(fractal, x, y);
 	if (button == 1 && fractal->set == 1)
 		return change_julias_shape(fractal, x, y);
+	return 0;
+}
+
+int add_precision(t_fractal *fractal)
+{
+	if (fractal->max_iterations < MAX_ITERATIONS)
+	{
+		fractal->max_iterations++;
+		fractal_refresh(fractal);
+	}
 	return 0;
 }
 
