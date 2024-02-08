@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/01/29 16:14:09 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:32:45 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int calculate_julia(t_pixel px, t_fractal *fractal)
 	//c.imaginary = 0.01;
 	//c.imaginary = 0.00046;
 	int max = 4;
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 50; i++)
 	{
 		double tmp = point.real;
 		point.real = (point.real * point.real) - (point.imaginary * point.imaginary) + c.real;
@@ -37,5 +37,19 @@ int calculate_julia(t_pixel px, t_fractal *fractal)
 		}
 	}
 	return 0;
+}
+
+int change_julias_shape(t_fractal *fractal, int x, int y)
+{
+	t_pixel px;
+	t_complex mouse_pos;
+
+	px.x = x;
+	px.y = y;
+	mouse_pos = rescale_pixel(px, fractal);
+	fractal->current_point.real = mouse_pos.real;
+	fractal->current_point.imaginary = mouse_pos.imaginary;
+	fractal_refresh(fractal);
+	return (0);
 }
 
