@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:18:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:55:54 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ static void display_command_list(t_fractal *fractal, int *y)
 	display_string(fractal, y, "Arrows : Moving");
 	display_string(fractal, y, "Wheel : Zoom");
 	display_string(fractal, y, "p : Add precision");
+	display_string(fractal, y, "m : Decrease precision");
 	display_string(fractal, y, "c : Change colorset");
+	display_string(fractal, y, "r : Reset");
 }
 
 

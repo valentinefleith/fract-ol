@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:22:28 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/09 11:57:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int key_events(int keycode, t_fractal *fractal)
 		return shiftimaginary(fractal, '-');
 	if (keycode == KEY_DOWN)
 		return shiftimaginary(fractal, '+');
+	if (keycode == KEY_R)
+		draw_fractal(fractal);
 	if (keycode == KEY_H && fractal->help == 0) 
 		return display_commands(fractal);
 	if (keycode == KEY_H && fractal->help == 1)
