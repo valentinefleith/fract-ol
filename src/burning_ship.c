@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/09 13:26:31 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/09 14:08:54 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int calculate_mandelbrot(t_pixel px, t_fractal *fractal)
+int calculate_burning_ship(t_pixel px, t_fractal *fractal)
 {
 	t_complex point;
 	point = rescale_pixel(px, fractal);
@@ -24,7 +24,7 @@ int calculate_mandelbrot(t_pixel px, t_fractal *fractal)
 	{
 		double tmp = z.real;
 		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
-		z.imaginary = (2 * tmp * z.imaginary) + point.imaginary;
+		z.imaginary = fabs(2 * tmp * z.imaginary) + point.imaginary;
 		if (z.real * z.real + z.imaginary * z.imaginary > max)
 		{
 			if (i)

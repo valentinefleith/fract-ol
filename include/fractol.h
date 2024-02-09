@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:51:39 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:38:39 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <mlx.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "libft.h"
 #include "keycodes.h"
@@ -95,6 +96,7 @@ int zoom_out(t_fractal *fractal);
 t_complex convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal);
 int calculate_mandelbrot(t_pixel px, t_fractal *fractal);
+int calculate_burning_ship(t_pixel px, t_fractal *fractal);
 int calculate_julia(t_pixel px, t_fractal *fractal);
 int parse_args(int argc, char **argv, t_fractal *fractal);
 int display_commands(t_fractal *fractal);

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:56:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:04:30 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 		fractal->set = 0;
 	else if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
 		fractal->set = 1;
+	else if (!ft_strncmp(argv[1], "ship", ft_strlen("ship")))
+		fractal->set = 2;
 	else
 	{
 		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n");
