@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 14:10:15 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:25:26 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ int change_julias_shape(int x, int y, t_fractal *fractal);
 void display_help(t_fractal *fractal);
 int add_precision(t_fractal *fractal);
 int decrease_precision(t_fractal *fractal);
+void init_struct(t_fractal *fractal, t_img img);
 
 #endif
