@@ -6,12 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 23:34:58 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:47:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void	fractal_refresh(t_fractal *fractal)
 {
@@ -34,7 +33,7 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	if (argc < 2)
 	{
 		ft_printf("Il faut un nom de fractale en argument.\n");
-		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n");
+		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n\t- ship");
 		return (0);
 	}
 	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
