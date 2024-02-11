@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 14:25:09 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:34:59 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void draw_fractal(t_fractal *fractal)
 	t_img img;
 
 	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	// TODO : verify that malloc worked
+	// /!\ LEAKS (free everything)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	init_struct(fractal, img);
 	calculate_and_put_pixels(fractal);

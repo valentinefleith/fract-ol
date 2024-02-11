@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 14:18:13 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:34:58 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	fractal_refresh(t_fractal *fractal)
 
 	mlx_destroy_image(fractal->mlx, fractal->img.img);
 	new_img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	// TODO : verify that malloc worked
+	// /!\ LEAKS (free everything)
 	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel,
 			&new_img.line_length, &new_img.endian);
 	fractal->img = new_img;
@@ -49,6 +51,8 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	return (1);
 }
 
+// TODO : create new function for init everything separately
+// handle error cases in a separate function too (use exit() ?)
 int	main(int argc, char **argv)
 {
 	t_fractal	fractal;

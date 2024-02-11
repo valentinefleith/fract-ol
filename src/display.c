@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/09 11:55:54 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:35:47 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int display_commands(t_fractal *fractal)
 	fractal->help = 1;
 	mlx_destroy_image(fractal->mlx, fractal->img.img);
 	background.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	// TODO : check Malloc
+	// /!\ LEAKS (free everything)
 	background.addr = mlx_get_data_addr(background.img, &background.bits_per_pixel, &background.line_length, &background.endian);
 	fractal->img = background;
 	mlx_put_image_to_window(fractal->mlx, fractal->win, background.img, 0, 0);
