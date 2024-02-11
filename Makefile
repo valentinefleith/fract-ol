@@ -6,14 +6,14 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/11 23:40:25 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/11 23:44:51 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fract-ol
 
 CC = cc
-CFLAGS = -Wall -Wextra -g3
+CFLAGS = -Wall -Wextra -g3 -lm
 CFLAGS += -Werror
 
 MLX_PATH = minilibx-linux
