@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/11 13:48:47 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/11 23:40:25 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(MLX):
 
 $(LIBFT):
 	@echo "Making Libft"
-	@make -sC $(LIBFT_PATH)
+	@make -sC $(LIBFT_PATH) > /dev/null
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) $(MLXFLAGS)
