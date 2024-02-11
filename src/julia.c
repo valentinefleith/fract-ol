@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/08 19:08:04 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:09:56 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int calculate_julia(t_pixel px, t_fractal *fractal)
 	return 0;
 }
 
-int change_julias_shape(t_fractal *fractal, int x, int y)
+int change_julias_shape(int x, int y, t_fractal *fractal)
 {
 	t_pixel px;
 	t_complex mouse_pos;
