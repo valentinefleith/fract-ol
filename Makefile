@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/11 13:37:34 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/11 13:48:47 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,8 @@ clean:
 
 .PHONY: fclean
 fclean: clean
+	@make clean -C $(MLX_PATH) > /dev/null
+	@make fclean -C $(LIBFT_PATH) > /dev/null
 	@rm -rf $(NAME)
 
 .PHONY: re
