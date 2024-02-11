@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/09 11:57:23 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:17:34 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int mouse_events(int button, int x, int y, t_fractal *fractal)
 	if (button == 4)
 		return zoom_in(fractal, x, y);
 	if (button == 1 && fractal->set == 1)
-		return change_julias_shape(fractal, x, y);
+		return change_julias_shape(x, y, fractal);
 	return 0;
 }
 
@@ -78,6 +78,7 @@ int decrease_precision(t_fractal *fractal)
 
 int close_window(t_fractal *fractal)
 {
+	mlx_destroy_image(fractal->mlx, fractal->img.img);
 	mlx_destroy_window(fractal->mlx, fractal->win);
 	mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
