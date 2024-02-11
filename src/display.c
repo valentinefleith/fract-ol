@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 23:35:47 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:16:49 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ void display_help(t_fractal *fractal)
 {
 	mlx_string_put(fractal->mlx, fractal->win, 20, 30, BLACK, "Press h to display help");
 }
+
+//void display_julias_param(t_fractal *fractal)
+//{
+//	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 20, 30, BLACK, "Current julia point : ");
+//}
 
 int display_commands(t_fractal *fractal)
 {

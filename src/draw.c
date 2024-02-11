@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/11 23:34:59 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:26:20 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ void init_struct(t_fractal *fractal, t_img img)
 	//fractal->colorset = 0x00275b55;
 	//
 	//fractal->colorset = 0xFF7E2D9F;
-	//fractal->colorset = 0xFF3AB541;
-	fractal->colorset = 0xFF8F6A15;
+	fractal->colorset = 0xFFF3EAEA;
+	//fractal->colorset = 0xFF8F6A15;
+	//fractal->colorset = 0xFFFCD1EC;
 	//fractal->colorset = 0xFF2E7C89;
 	//fractal->colorset = 0xFF6D48E7;
 	fractal->xmin = -2.1;
@@ -61,8 +62,8 @@ void init_struct(t_fractal *fractal, t_img img)
 	else 
 		fractal->shiftx = 0;
 	fractal->shifty = 0;
-	fractal->current_point.real = 0.08;
-	fractal->current_point.imaginary = 1;
+	fractal->current_point.real = 0.285;
+	fractal->current_point.imaginary = 0.01;
 	fractal->help = 0;
 
 }
