@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/09 13:03:14 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/11 13:37:34 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fract-ol
 
 CC = cc
 CFLAGS = -Wall -Wextra -g3
-#CFLAGS += -Werror
+CFLAGS += -Werror
 
 MLX_PATH = minilibx-linux
 MLX_NAME = libmlx.a
@@ -45,7 +45,7 @@ $(OBJ_DIR)/%.o: %.c
 
 $(MLX):
 	@echo "Making MLX"
-	@make -sC $(MLX_PATH)
+	@make -sC $(MLX_PATH) > /dev/null 2>&1
 
 $(LIBFT):
 	@echo "Making Libft"
@@ -58,8 +58,8 @@ $(NAME): $(OBJS)
 .PHONY: clean
 clean:
 	@rm -rf $(OBJ_DIR)
-	@make clean -C $(MLX_PATH)
-	@make clean -C $(LIBFT_PATH)
+	@make clean -C $(MLX_PATH) > /dev/null
+	@make clean -C $(LIBFT_PATH) > /dev/null
 
 .PHONY: fclean
 fclean: clean
