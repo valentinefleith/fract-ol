@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 22:15:48 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:48:41 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,21 @@ static void display_command_list(t_fractal *fractal, int *y)
 	display_string_centered(fractal, y, "d : Add darkness");
 	display_string_centered(fractal, y, "b : Add brightness");
 	display_string_centered(fractal, y, "r : Reset");
+	if (fractal->set == 1)
+		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
+		
 }
 
 
 void display_standard(t_fractal *fractal)
 {
-	mlx_string_put(fractal->mlx, fractal->win, 20, 30, BLACK, "Press h to display help");
+	if (fractal->set == 0)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK, "------- MANDELBROT SET -------");
+	else if (fractal->set == 1)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK, "------- JULIA SET -------");
+	else if (fractal->set == 2)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK, "------- BURNING SHIP FRACTAL -------");
+	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK, "Press h to display help");
 	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK, ft_strjoin("Scale : 1/", ft_itoa(1/fractal->zoom)));
 }
 
