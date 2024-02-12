@@ -1,6 +1,14 @@
 # fract-ol
-![image](https://github.com/valentinefleith/fract-ol/assets/125041345/8e13ff16-beda-4ee9-9418-d4b40eed3b8f)
-![image](https://github.com/valentinefleith/fract-ol/assets/125041345/fd811e9c-ff8b-4cd0-9936-67c91ca33085)
 
+This project is about creating fractals graphically.
+## Mandelbrot Set
+![image](https://github.com/valentinefleith/fract-ol/assets/125041345/93526be5-7410-4c09-a401-02286b105d63)
 
-this project is about creating fractals graphically.
+## Julia Set
+
+![image](https://github.com/valentinefleith/fract-ol/assets/125041345/390808b1-4cdd-49ba-8561-3afd9ac8c568)
+
+## Burning ship fractal
+
+![image](https://github.com/valentinefleith/fract-ol/assets/125041345/ab32ee6e-5834-4b06-8372-28e48b941a75)
+
