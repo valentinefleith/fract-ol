@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 23:15:35 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:29:16 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 //#define HEIGHT 720
 #define WIDTH 1080
 //#define WIDTH 810
-#define MAX_ITERATIONS 100
+#define MAX_ITERATIONS 130
 #define MIN_ITERATIONS 40
 
 #define MAX 4
@@ -68,7 +68,7 @@ typedef struct s_fractal
 	double shiftx;
 	double shifty;
 	int colorset;
-	int palette[9];
+	int palette[10];
 	int colornb;
 	t_complex current_point;
 	int help;
