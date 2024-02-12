@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 20:17:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:15:48 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ static void display_string_centered(t_fractal *fractal, int *y, char *str)
 static void display_command_list(t_fractal *fractal, int *y)
 {
 
-	display_string_centered(fractal, y, "Arrows : Moving");
-	display_string_centered(fractal, y, "Wheel : Zoom");
+	display_string_centered(fractal, y, "arrows : Move");
+	display_string_centered(fractal, y, "mouse wheel : Zoom");
 	display_string_centered(fractal, y, "p : Add precision");
 	display_string_centered(fractal, y, "m : Decrease precision");
 	display_string_centered(fractal, y, "c : Change colorset");
+	display_string_centered(fractal, y, "d : Add darkness");
+	display_string_centered(fractal, y, "b : Add brightness");
 	display_string_centered(fractal, y, "r : Reset");
 }
 
