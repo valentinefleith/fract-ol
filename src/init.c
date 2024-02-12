@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 23:36:27 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:53:49 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void init_struct(t_fractal *fractal, t_img img)
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
 	fractal->help = 0;
-
 }
 
 void init_palette(t_fractal *fractal)
@@ -48,10 +47,6 @@ void init_palette(t_fractal *fractal)
 	fractal->palette[7] = 0xb7bdf8;
 	fractal->palette[8] = 0x74c7ec;
 	fractal->palette[9] = 0xcd8604;
-	//fractal->palette[1] = 0xf0c6c6;
-	//fractal->palette[2] = 0xf3eaea;
-	//fractal->colorset = 0xf9e2af;
-	//fractal->colorset = 0xf0c6c6;
 
 }
 
@@ -70,3 +65,12 @@ void init_fractal(t_fractal *fractal)
 
 }
 
+void init_hook(t_fractal *fractal)
+{
+	mlx_mouse_hook(fractal->win, mouse_events, fractal);
+	mlx_key_hook(fractal->win, key_events, fractal);
+	mlx_hook(fractal->win, 17, 0, exit_program, fractal);
+	if (fractal->set == 1)
+		mlx_hook(fractal->win, 6, 1L << 6, mouse_move, fractal);
+	mlx_loop(fractal->mlx);
+}
