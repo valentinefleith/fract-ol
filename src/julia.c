@@ -6,38 +6,44 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 14:19:01 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:23:46 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int calculate_julia(t_pixel px, t_fractal *fractal)
+int	calculate_julia(t_pixel px, t_fractal *fractal)
 {
-	t_complex point;
+	t_complex	point;
+	t_complex	c;
+	int			i;
+	double		tmp;
+
 	point = rescale_pixel(px, fractal);
-	t_complex c;
 	c.real = fractal->current_point.real;
 	c.imaginary = fractal->current_point.imaginary;
-	for (int i = 0; i < fractal->max_iterations; i++)
+	i = 0;
+	while (i < fractal->max_iterations)
 	{
-		double tmp = point.real;
-		point.real = (point.real * point.real) - (point.imaginary * point.imaginary) + c.real;
+		tmp = point.real;
+		point.real = (point.real * point.real) - (point.imaginary
+				* point.imaginary) + c.real;
 		point.imaginary = (2 * tmp * point.imaginary) + c.imaginary;
 		if (point.real * point.real + point.imaginary * point.imaginary > MAX)
 		{
 			if (i)
-				return fractal->colorset * i;
-			return WHITE;
+				return (fractal->colorset * i);
+			return (WHITE);
 		}
+		i++;
 	}
-	return 0;
+	return (0);
 }
 
-int change_julias_shape(int x, int y, t_fractal *fractal)
+int	change_julias_shape(int x, int y, t_fractal *fractal)
 {
-	t_pixel px;
-	t_complex mouse_pos;
+	t_pixel		px;
+	t_complex	mouse_pos;
 
 	px.x = x;
 	px.y = y;
@@ -47,4 +53,3 @@ int change_julias_shape(int x, int y, t_fractal *fractal)
 	fractal_refresh(fractal);
 	return (0);
 }
-
