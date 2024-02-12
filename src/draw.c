@@ -6,11 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 20:27:40 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:57:14 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stddef.h>
 
 void calculate_and_put_pixels(t_fractal *fractal)
 {
@@ -42,8 +43,11 @@ void calculate_and_put_pixels(t_fractal *fractal)
 void init_struct(t_fractal *fractal, t_img img)
 {
 	fractal->img = img;
+	fractal->colornb = 0;
+	init_palette(fractal);
+	fractal->colorset = fractal->palette[0];
 	// CATPUCCIN
-	fractal->colorset = 0xcba6f7;
+	//init_palette(fractal);
 	//fractal->colorset = 0xf9e2af;
 	//fractal->colorset = 0xf0c6c6;
 	//
@@ -64,6 +68,16 @@ void init_struct(t_fractal *fractal, t_img img)
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
 	fractal->help = 0;
+
+}
+
+void init_palette(t_fractal *fractal)
+{
+	fractal->palette[0] = 0xf9e2af;
+	fractal->palette[1] = 0xf0c6c6;
+	fractal->palette[2] = 0xf3eaea;
+	//fractal->colorset = 0xf9e2af;
+	//fractal->colorset = 0xf0c6c6;
 
 }
 

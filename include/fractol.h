@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 20:16:28 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:57:24 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ typedef struct s_img
 	int endian; // Format de stockage des couleurs (BE ou LE)
 }		t_img;
 
+typedef struct s_catppuccin
+{
+	int colors[15];
+	int cur;
+	int total;
+}
+	t_catppuccin;
 
 typedef struct s_complex
 {
@@ -69,6 +76,8 @@ typedef struct s_fractal
 	double shiftx;
 	double shifty;
 	int colorset;
+	int palette[4];
+	int colornb;
 	t_complex current_point;
 	int help;
 	int brightness;
@@ -113,5 +122,6 @@ int check_limits(int value, int min, int max);
 int adjust_brightness(int color, int brightness);
 int get_color(int iterations, t_fractal *fractal);
 int change_brightness(t_fractal *fractal, int keycode);
+void init_palette(t_fractal *fractal);
 
 #endif
