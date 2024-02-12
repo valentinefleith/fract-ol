@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 14:15:43 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:00:47 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int	main(int argc, char **argv)
 		free(fractal.mlx);
 		return (1);
 	}
-	draw_fractal(&fractal);
+	init_fractal(&fractal);
 	// mlx_mouse_hook(fractal.win, mouse_hook, &vars);
 	// mlx_hook(fractal.win, 4, 0, key_events, &fractal);
 	// mlx_hook(fractal.win, 4, 0, mouse_events, &fractal);
 	mlx_mouse_hook(fractal.win, mouse_events, &fractal);
 	mlx_key_hook(fractal.win, key_events, &fractal);
-	mlx_hook(fractal.win, 17, 0, close_window, &fractal);
+	mlx_hook(fractal.win, 17, 0, exit_program, &fractal);
 	//mlx_hook(fractal.win, 6, 0, change_julias_shape, &fractal);
 	// Lancer la boucle d'evenements
 	mlx_loop(fractal.mlx);

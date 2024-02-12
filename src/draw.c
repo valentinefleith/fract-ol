@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 00:26:20 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:52:52 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void calculate_and_put_pixels(t_fractal *fractal)
 {
 	t_pixel px;
 	int color;
-	for (int i = 0; i < WIDTH; i++)
+	int i = 0;
+	while (i < WIDTH)
 	{
-		for (int j = 0; j < HEIGHT; j++)
+		int j = 0;
+		while (j < HEIGHT)
 		{
 			px.x = i;
 			px.y = j;
-			//int color = calculate_mandelbrot(px, fractal);
 			if (fractal->set == 0)
 				color = calculate_mandelbrot(px, fractal);
 			else if (fractal->set == 1)
@@ -32,7 +33,9 @@ void calculate_and_put_pixels(t_fractal *fractal)
 			if (color)
 				my_mlx_pixel_put(&fractal->img, px.x, px.y, color);
 			//0x00FF0A80
+			j++;
 		}
+		i++;
 	}
 }
 
@@ -68,7 +71,7 @@ void init_struct(t_fractal *fractal, t_img img)
 
 }
 
-void draw_fractal(t_fractal *fractal)
+void init_fractal(t_fractal *fractal)
 {
 	t_img img;
 

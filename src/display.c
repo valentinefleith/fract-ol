@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 00:16:49 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:56:14 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void display_help(t_fractal *fractal)
 
 int display_commands(t_fractal *fractal)
 {
-	//int x = WIDTH / 2;
 	int y = 30;
 	t_img background;
 	

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 14:18:28 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:59:12 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct s_pixel
 	t_pixel;
 
 void calculate_and_put_pixels(t_fractal *fractal);
-void draw_fractal(t_fractal *fractal);
-int close_window(t_fractal *fractal);
+void init_fractal(t_fractal *fractal);
+int exit_program(t_fractal *fractal);
 int key_events(int keycode, t_fractal *fractal);
 int mouse_events(int button, int x, int y, t_fractal *fractal);
 void my_mlx_pixel_put(t_img *img, int x, int y, int color);

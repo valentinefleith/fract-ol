@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 00:23:29 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:00:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int key_events(int keycode, t_fractal *fractal)
 {
 	if (keycode == KEY_ESC)
-		return close_window(fractal);
+		return exit_program(fractal);
 	if (keycode == KEY_C)
 		return change_colors(fractal);
 	if (keycode == KEY_P)
@@ -38,7 +38,6 @@ int key_events(int keycode, t_fractal *fractal)
 		init_struct(fractal, fractal->img);
 		fractal_refresh(fractal);
 	}
-		//draw_fractal(fractal);
 	if (keycode == KEY_H && fractal->help == 0) 
 		return display_commands(fractal);
 	if (keycode == KEY_H && fractal->help == 1)
@@ -78,16 +77,6 @@ int decrease_precision(t_fractal *fractal)
 		fractal_refresh(fractal);
 	}
 	return 0;
-}
-
-int close_window(t_fractal *fractal)
-{
-	mlx_destroy_image(fractal->mlx, fractal->img.img);
-	mlx_destroy_window(fractal->mlx, fractal->win);
-	mlx_destroy_display(fractal->mlx);
-	free(fractal->mlx);
-	exit(0);
-	return (0);
 }
 
 
