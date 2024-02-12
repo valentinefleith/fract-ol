@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 14:19:12 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:21:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,7 @@ int calculate_burning_ship(t_pixel px, t_fractal *fractal)
 		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
 		z.imaginary = fabs(2 * tmp * z.imaginary) + point.imaginary;
 		if (z.real * z.real + z.imaginary * z.imaginary > MAX)
-		{
-			if (i)
-				return fractal->colorset * i;
-				//return fractal->colorset * i;
-			return WHITE;
-		}
+			return get_color(i, fractal);
 	}
 	return 0;
 }
