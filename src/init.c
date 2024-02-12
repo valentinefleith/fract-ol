@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 23:09:27 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:18:34 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void init_palette(t_fractal *fractal)
 	fractal->palette[3] = 0xc6a0f6;
 	fractal->palette[4] = 0xed8796;
 	fractal->palette[5] = 0xee99a0;
-	fractal->palette[7] = 0xf5a97f;
+	fractal->palette[6] = 0xf5a97f;
+	fractal->palette[7] = 0xb7bdf8;
+	fractal->palette[8] = 0x74c7ec;
 	//fractal->palette[1] = 0xf0c6c6;
 	//fractal->palette[2] = 0xf3eaea;
 	//fractal->colorset = 0xf9e2af;

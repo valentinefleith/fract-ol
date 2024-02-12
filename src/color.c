@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:58:39 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 22:21:46 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 23:13:28 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int adjust_brightness(int color, int brightness)
     int green = (color >> 8) & 0xFF;
     int blue = color & 0xFF;
 	
-    red = check_limits(red - brightness, 0, 255);
+    red = check_limits(red - brightness / 2, 0, 255);
     green = check_limits(green - brightness, 0, 255);
-    blue = check_limits(blue - brightness, 0, 255);
+    blue = check_limits(blue - brightness / 2, 0, 255);
 
     return (red << 16) | (green << 8) | blue;
 }
