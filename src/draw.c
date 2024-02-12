@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:43:11 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:27:40 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,12 @@ void init_struct(t_fractal *fractal, t_img img)
 {
 	fractal->img = img;
 	// CATPUCCIN
-	//fractal->colorset = 0xcba6f7;
+	fractal->colorset = 0xcba6f7;
 	//fractal->colorset = 0xf9e2af;
-	fractal->colorset = 0xf0c6c6;
+	//fractal->colorset = 0xf0c6c6;
 	//
-	//fractal->colorset = 0x0011FC92;
-	//fractal->colorset = 0x00121212;
-	//fractal->colorset = 0xA81513;
-	//fractal->colorset = 0x00ffef7a;
-	//fractal->colorset = 0x00275b55;
-	//
-	//fractal->colorset = 0xFF7E2D9F;
-	//fractal->colorset = 0xFFF3EAEA;
-	//fractal->colorset = 0xFF8F6A15;
-	//fractal->colorset = 0xFFFCD1EC;
-	//fractal->colorset = 0xFF2E7C89;
-	//fractal->colorset = 0xFF6D48E7;
+	//fractal->colorset = 0x00121212; // dark
+	//fractal->colorset = 0xFFF3EAEA; // bright
 	fractal->brightness = 3;
 	fractal->xmin = -2.1;
 	fractal->xmax = 0.6;
