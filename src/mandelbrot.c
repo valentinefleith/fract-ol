@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/09 13:26:31 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:18:41 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ int calculate_mandelbrot(t_pixel px, t_fractal *fractal)
 	t_complex z;
 	z.real = 0;
 	z.imaginary = 0;
-	int max = 4;
 	for (int i = 0; i < fractal->max_iterations; i++)
 	{
 		double tmp = z.real;
 		z.real = (z.real * z.real) - (z.imaginary * z.imaginary) + point.real;
 		z.imaginary = (2 * tmp * z.imaginary) + point.imaginary;
-		if (z.real * z.real + z.imaginary * z.imaginary > max)
+		if (z.real * z.real + z.imaginary * z.imaginary > MAX)
 		{
 			if (i)
 				return fractal->colorset * i;
