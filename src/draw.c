@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:08:52 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:43:11 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ void calculate_and_put_pixels(t_fractal *fractal)
 void init_struct(t_fractal *fractal, t_img img)
 {
 	fractal->img = img;
-	fractal->colorset = 0xe1c99f;
+	// CATPUCCIN
+	//fractal->colorset = 0xcba6f7;
+	//fractal->colorset = 0xf9e2af;
+	fractal->colorset = 0xf0c6c6;
+	//
 	//fractal->colorset = 0x0011FC92;
 	//fractal->colorset = 0x00121212;
 	//fractal->colorset = 0xA81513;
@@ -84,7 +88,7 @@ void init_fractal(t_fractal *fractal)
 	init_struct(fractal, img);
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
-	display_help(fractal);
+	display_standard(fractal);
 
 }
 

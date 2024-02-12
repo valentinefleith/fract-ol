@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 15:00:47 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:16:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	fractal_refresh(t_fractal *fractal)
 	fractal->img = new_img;
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
-	display_help(fractal);
+	display_standard(fractal);
 }
 
 int	parse_args(int argc, char **argv, t_fractal *fractal)

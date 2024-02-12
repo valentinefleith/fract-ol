@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:58:39 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:08:22 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:40:45 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,24 @@ int get_color(int iterations, t_fractal *fractal)
 
 	brightness = iterations * fractal->brightness;
 	return adjust_brightness(fractal->colorset, brightness);
+}
+
+int change_brightness(t_fractal *fractal, int keycode)
+{
+	if (keycode == KEY_B)
+		fractal->brightness--;
+	if (keycode == KEY_D)
+		fractal->brightness++;
+	fractal_refresh(fractal);
+	return 0;
+}
+
+int change_colors(t_fractal *fractal)
+{
+	//int colors[] = {0x0011FC92, 0x00119EFC, 0x00FCBE11, 0x00AB3434};
+	//fractal->colorset = fractal->colorset * 0.7 + 5;
+	//fractal->colorset = fractal->colorset * 1.5 - 560;
+	fractal->colorset = fractal->colorset * 1.01 + 5;
+	fractal_refresh(fractal);	
+	return 0;
 }

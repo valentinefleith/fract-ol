@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:07:06 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:30:03 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ int	calculate_julia(t_pixel px, t_fractal *fractal)
 		r_square = point.real * point.real;
 		i_square = point.imaginary * point.imaginary;
 		if (r_square + i_square > MAX)
-		{
 			return get_color(i, fractal);
-		}
 		i++;
 	}
-	return (0);
+	return (BLACK);
 }
 
 int	change_julias_shape(int x, int y, t_fractal *fractal)

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 15:34:05 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 20:17:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ static void display_command_list(t_fractal *fractal, int *y)
 }
 
 
-void display_help(t_fractal *fractal)
+void display_standard(t_fractal *fractal)
 {
 	mlx_string_put(fractal->mlx, fractal->win, 20, 30, BLACK, "Press h to display help");
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK, ft_strjoin("Scale : 1/", ft_itoa(1/fractal->zoom)));
 }
 
 //void display_julias_param(t_fractal *fractal)
