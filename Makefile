@@ -6,7 +6,7 @@
 #    By: vafleith <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/12 20:16:04 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/12 23:09:42 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_DIR = src
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/events.c \
 	   $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/view.c \
 	   $(SRC_DIR)/display.c $(SRC_DIR)/burning_ship.c $(SRC_DIR)/exit_program.c \
-	   $(SRC_DIR)/color.c
+	   $(SRC_DIR)/color.c $(SRC_DIR)/init.c
 
 OBJ_DIR = build
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
