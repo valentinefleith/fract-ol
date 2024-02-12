@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:58:39 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:04:59 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:08:22 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int get_color(int iterations, t_fractal *fractal)
 {
 	int brightness;
 
-	brightness = iterations * 3.5;
+	brightness = iterations * fractal->brightness;
 	return adjust_brightness(fractal->colorset, brightness);
 }

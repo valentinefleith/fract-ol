@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 19:02:55 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:11:28 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_fractal
 	int colorset;
 	t_complex current_point;
 	int help;
+	int brightness;
 
 }
 	t_fractal;
@@ -111,5 +112,6 @@ int handle_shift(t_fractal *fractal, int keycode);
 int check_limits(int value, int min, int max); 
 int adjust_brightness(int color, int brightness);
 int get_color(int iterations, t_fractal *fractal);
+int change_brightness(t_fractal *fractal, int keycode);
 
 #endif
