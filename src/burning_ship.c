@@ -12,26 +12,29 @@
 
 #include "fractol.h"
 
-int calculate_burning_ship(t_pixel px, t_fractal *fractal)
+int	calculate_burning_ship(t_pixel px, t_fractal *fractal)
 {
-	t_complex point;
+	t_complex	point;
+	t_complex	z;
+	int			i;
+	double		r_square;
+	double		i_square;
+
 	point = rescale_pixel(px, fractal);
-	t_complex z;
-	int i;
 	z.real = 0;
 	z.imaginary = 0;
 	i = 0;
-    double r_square = 0;
-    double i_square = 0;
+	r_square = 0;
+	i_square = 0;
 	while (i < fractal->max_iterations)
 	{
 		z.imaginary = fabs(2 * z.real * z.imaginary) + point.imaginary;
 		z.real = r_square - i_square + point.real;
-        r_square = z.real * z.real;
-        i_square = z.imaginary * z.imaginary;
+		r_square = z.real * z.real;
+		i_square = z.imaginary * z.imaginary;
 		if (r_square + i_square > MAX)
-			return get_color(i, fractal);
+			return (get_color(i, fractal));
 		i++;
 	}
-	return BLACK;
+	return (BLACK);
 }
