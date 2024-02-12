@@ -6,28 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 00:52:55 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:57:31 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
-
-void	fractal_refresh(t_fractal *fractal)
-{
-	t_img	new_img;
-
-	mlx_destroy_image(fractal->mlx, fractal->img.img);
-	new_img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
-	// TODO : verify that malloc worked
-	// /!\ LEAKS (free everything)
-	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel,
-			&new_img.line_length, &new_img.endian);
-	fractal->img = new_img;
-	calculate_and_put_pixels(fractal);
-	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
-	display_standard(fractal);
-}
 
 int	parse_args(int argc, char **argv, t_fractal *fractal)
 {
@@ -51,7 +34,6 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	return (1);
 }
 
-// TODO : create new function for init everything separately
 // handle error cases in a separate function too (use exit() ?)
 int	main(int argc, char **argv)
 {
@@ -71,16 +53,4 @@ int	main(int argc, char **argv)
 	}
 	init_fractal(&fractal);
 	init_hook(&fractal);
-	// mlx_mouse_hook(fractal.win, mouse_hook, &vars);
-	// mlx_hook(fractal.win, 4, 0, key_events, &fractal);
-	// mlx_hook(fractal.win, 4, 0, mouse_events, &fractal);
-	//mlx_mouse_hook(fractal.win, mouse_events, &fractal);
-	//mlx_key_hook(fractal.win, key_events, &fractal);
-	//mlx_hook(fractal.win, 17, 0, exit_program, &fractal);
-	//mlx_mouse_get_pos(fractal.mlx, fractal.win, &x, &y);
-	//printf("%i, %i\n", x, y);
-	//if (fractal.set == 1)
-	//	mlx_hook(fractal.win, 6, 1L << 6, mouse_move, &fractal);
-	// Lancer la boucle d'evenements
-	//mlx_loop(fractal.mlx);
 }

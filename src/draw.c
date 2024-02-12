@@ -6,12 +6,27 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 23:09:27 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 00:57:42 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stddef.h>
+
+void	fractal_refresh(t_fractal *fractal)
+{
+	t_img	new_img;
+
+	mlx_destroy_image(fractal->mlx, fractal->img.img);
+	new_img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
+	// TODO : verify that malloc worked
+	// /!\ LEAKS (free everything)
+	new_img.addr = mlx_get_data_addr(new_img.img, &new_img.bits_per_pixel,
+			&new_img.line_length, &new_img.endian);
+	fractal->img = new_img;
+	calculate_and_put_pixels(fractal);
+	mlx_put_image_to_window(fractal->mlx, fractal->win, new_img.img, 0, 0);
+	display_standard(fractal);
+}
 
 void calculate_and_put_pixels(t_fractal *fractal)
 {
@@ -39,7 +54,6 @@ void calculate_and_put_pixels(t_fractal *fractal)
 		i++;
 	}
 }
-
 
 t_complex rescale_pixel(t_pixel px, t_fractal *fractal)
 {
