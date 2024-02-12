@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/12 15:00:25 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:29:46 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int key_events(int keycode, t_fractal *fractal)
 		return exit_program(fractal);
 	if (keycode == KEY_C)
 		return change_colors(fractal);
-	if (keycode == KEY_P)
-		return add_precision(fractal);
-	if (keycode == KEY_M)
-		return decrease_precision(fractal);
+	if (keycode == KEY_P || keycode == KEY_M)
+		return change_precision(fractal, keycode);
 	if (keycode == KEY_RIGHT)
 		return shiftreal(fractal, '+');
 	if (keycode == KEY_LEFT)
@@ -59,23 +57,19 @@ int mouse_events(int button, int x, int y, t_fractal *fractal)
 	return 0;
 }
 
-int add_precision(t_fractal *fractal)
+int change_precision(t_fractal *fractal, int keycode)
 {
-	if (fractal->max_iterations < MAX_ITERATIONS)
+	if (keycode == KEY_P)
 	{
-		fractal->max_iterations++;
-		fractal_refresh(fractal);
+		if (fractal->max_iterations < MAX_ITERATIONS)
+			fractal->max_iterations++;
 	}
-	return 0;
-}
-
-int decrease_precision(t_fractal *fractal)
-{
-	if (fractal->max_iterations > MIN_ITERATIONS)
+	if (keycode == KEY_M)
 	{
-		fractal->max_iterations--;
-		fractal_refresh(fractal);
+		if (fractal->max_iterations > MIN_ITERATIONS)
+			fractal->max_iterations--;
 	}
+	fractal_refresh(fractal);
 	return 0;
 }
 
