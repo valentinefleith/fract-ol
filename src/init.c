@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 18:04:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:28:44 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_struct(t_fractal *fractal, t_img img)
 
 void	init_palette(t_fractal *fractal)
 {
-	fractal->palette[0] = 0xf4dbd6;
+	fractal->palette[0] = 0xAC7D88;
 	fractal->palette[1] = 0xf9e2af;
 	fractal->palette[2] = 0xf5bde6;
 	fractal->palette[3] = 0xc6a0f6;
@@ -50,6 +50,7 @@ void	init_palette(t_fractal *fractal)
 	fractal->palette[7] = 0xb7bdf8;
 	fractal->palette[8] = 0x74c7ec;
 	fractal->palette[9] = 0xcd8604;
+	fractal->palette[10] = 0xf4dbd6;
 }
 
 void	init_fractal(t_fractal *fractal)

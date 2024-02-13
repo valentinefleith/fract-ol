@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 17:26:03 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:20:58 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_fractal
 	double		shiftx;
 	double		shifty;
 	int			colorset;
-	int			palette[10];
+	int			palette[11];
 	int			colornb;
 	t_complex	current_point;
 	int			help;
