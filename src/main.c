@@ -6,11 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 01:08:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:10:03 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 int	parse_args(int argc, char **argv, t_fractal *fractal)
 {
@@ -40,7 +41,7 @@ int	main(int argc, char **argv)
 	t_fractal	fractal;
 
 	if (!parse_args(argc, argv, &fractal))
-		return (1);
+		return (2);
 	fractal.mlx = mlx_init();
 	if (fractal.mlx == NULL)
 		return (1);
