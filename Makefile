@@ -6,14 +6,14 @@
 #    By: vafleith <vafleith@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/13 16:54:12 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/13 17:32:59 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fract-ol
 
 CC = cc
-CFLAGS = -Wall -Wextra -g3 -lm
+CFLAGS = -Wall -Wextra -g3
 CFLAGS += -Werror
 
 MLX_PATH = minilibx-linux
@@ -31,7 +31,7 @@ SRC_DIR = src
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/events.c \
 	   $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/view.c \
 	   $(SRC_DIR)/display.c $(SRC_DIR)/burning_ship.c $(SRC_DIR)/exit_program.c \
-	   $(SRC_DIR)/color.c $(SRC_DIR)/init.c
+	   $(SRC_DIR)/color.c $(SRC_DIR)/init.c $(SRC_DIR)/double_conversion.c
 
 OBJ_DIR = build
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -53,7 +53,7 @@ $(LIBFT):
 	@make -sC $(LIBFT_PATH) > /dev/null
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) $(MLXFLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) $(MLXFLAGS) -lm
 	@echo "Fract-ol ready."
 
 .PHONY: clean
