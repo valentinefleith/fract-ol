@@ -18,3 +18,6 @@ This project is about creating fractals graphically.
 
 ![image](https://github.com/valentinefleith/fract-ol/assets/125041345/ab32ee6e-5834-4b06-8372-28e48b941a75)
 
+## TODO
+- add function for handling errors + check leaks
+- add atod function (for taking julia's params in argument) and maybe dtoa ?
