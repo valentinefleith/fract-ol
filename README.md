@@ -1,6 +1,17 @@
 # fract-ol
 
 This project is about creating fractals graphically.
+
+The term fractal was first used by mathematician Benoit Mandelbrot in 1974. He based
+it on the Latin word fractus which means "broken" or "fractured".
+
+A fractal is an abstract mathematical object, like a curve or a surface, which pattern
+remains the same at every scale.
+
+This projects uses the 42 school graphical library: the MiniLibX. This library was
+developed internally and includes basic necessary tools to open a window, create images
+and deal with keyboard and mouse events.
+
 ## Mandelbrot Set
 ![image](https://github.com/valentinefleith/fract-ol/assets/125041345/93526be5-7410-4c09-a401-02286b105d63)
 
