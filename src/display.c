@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 00:48:41 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 01:09:42 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ int display_commands(t_fractal *fractal)
 		display_string_centered(fractal, &y, "------- MANDELBROT SET -------");
 	else if (fractal->set == 1)
 		display_string_centered(fractal, &y, "------- JULIA SET -------");
+	else if (fractal->set == 2)
+		display_string_centered(fractal, &y, "------- BURNING SHIP FRACTAL -------");
 	y += LINE_LENGTH;
 	display_command_list(fractal, &y);
-	//display_zoom(fractal, x, &y);
 	return (0);
 }
