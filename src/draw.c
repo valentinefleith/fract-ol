@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 00:57:42 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 01:12:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ void	fractal_refresh(t_fractal *fractal)
 	display_standard(fractal);
 }
 
-void calculate_and_put_pixels(t_fractal *fractal)
+void	calculate_and_put_pixels(t_fractal *fractal)
 {
-	t_pixel px;
-	int color;
-	int i = 0;
+	t_pixel	px;
+	int		color;
+	int		i;
+	int		j;
+
+	i = 0;
 	while (i < WIDTH)
 	{
-		int j = 0;
+		j = 0;
 		while (j < HEIGHT)
 		{
 			px.x = i;
@@ -48,31 +51,32 @@ void calculate_and_put_pixels(t_fractal *fractal)
 				color = calculate_burning_ship(px, fractal);
 			if (color)
 				my_mlx_pixel_put(&fractal->img, px.x, px.y, color);
-			//0x00FF0A80
 			j++;
 		}
 		i++;
 	}
 }
 
-t_complex rescale_pixel(t_pixel px, t_fractal *fractal)
+t_complex	rescale_pixel(t_pixel px, t_fractal *fractal)
 {
-	t_complex point;
+	t_complex	point;
 
-	point.real = (px.x * (fractal->xmax - fractal->xmin) / WIDTH) + fractal->xmin;
+	point.real = (px.x * (fractal->xmax - fractal->xmin) / WIDTH)
+		+ fractal->xmin;
 	point.real = point.real * fractal->zoom + fractal->shiftx;
-	point.imaginary = (px.y * (fractal->ymax - fractal->ymin) / HEIGHT) + fractal->ymin;
+	point.imaginary = (px.y * (fractal->ymax - fractal->ymin) / HEIGHT)
+		+ fractal->ymin;
 	if (fractal->set == 2)
 		point.imaginary = point.imaginary * fractal->zoom + fractal->shifty;
 	else
 		point.imaginary = -point.imaginary * fractal->zoom + fractal->shifty;
-	return point;
+	return (point);
 }
 
-void my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	char *dst;
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	char	*dst;
 
-	*(unsigned int*)dst = color;
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

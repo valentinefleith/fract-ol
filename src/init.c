@@ -6,13 +6,13 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 00:53:49 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 01:15:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void init_struct(t_fractal *fractal, t_img img)
+void	init_struct(t_fractal *fractal, t_img img)
 {
 	fractal->img = img;
 	fractal->colornb = 0;
@@ -27,7 +27,7 @@ void init_struct(t_fractal *fractal, t_img img)
 	fractal->max_iterations = MIN_ITERATIONS;
 	if (fractal->set == 1)
 		fractal->shiftx = 0.7;
-	else 
+	else
 		fractal->shiftx = 0;
 	fractal->shifty = 0;
 	fractal->current_point.real = 0.285;
@@ -35,7 +35,7 @@ void init_struct(t_fractal *fractal, t_img img)
 	fractal->help = 0;
 }
 
-void init_palette(t_fractal *fractal)
+void	init_palette(t_fractal *fractal)
 {
 	fractal->palette[0] = 0xf4dbd6;
 	fractal->palette[1] = 0xf9e2af;
@@ -47,25 +47,24 @@ void init_palette(t_fractal *fractal)
 	fractal->palette[7] = 0xb7bdf8;
 	fractal->palette[8] = 0x74c7ec;
 	fractal->palette[9] = 0xcd8604;
-
 }
 
-void init_fractal(t_fractal *fractal)
+void	init_fractal(t_fractal *fractal)
 {
-	t_img img;
+	t_img	img;
 
 	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	// TODO : verify that malloc worked
 	// /!\ LEAKS (free everything)
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+			&img.endian);
 	init_struct(fractal, img);
 	calculate_and_put_pixels(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, img.img, 0, 0);
 	display_standard(fractal);
-
 }
 
-void init_hook(t_fractal *fractal)
+void	init_hook(t_fractal *fractal)
 {
 	mlx_mouse_hook(fractal->win, mouse_events, fractal);
 	mlx_key_hook(fractal->win, key_events, fractal);
