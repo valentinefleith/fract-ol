@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 01:25:53 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:13:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int				change_julias_shape(int x, int y, t_fractal *fractal);
 int				get_color(int iterations, t_fractal *fractal);
 void			calculate_and_put_pixels(t_fractal *fractal);
 void			my_mlx_pixel_put(t_img *img, int x, int y, int color);
+int				adjust_brightness(int color, int brightness);
 
 // ====== EVENTS =======
 int				mouse_events(int button, int x, int y, t_fractal *fractal);
@@ -123,5 +124,6 @@ t_complex		convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex		rescale_pixel(t_pixel px, t_fractal *fractal);
 int				parse_args(int argc, char **argv, t_fractal *fractal);
 int				check_limits(int value, int min, int max);
+int 			free_window(t_fractal *fractal);
 
 #endif

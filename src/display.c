@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 01:11:13 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:20:28 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ void	display_standard(t_fractal *fractal)
 			"------- BURNING SHIP FRACTAL -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
+	char *scale;
+	scale = ft_strjoin("Scale : 1/", ft_itoa(1 / fractal->zoom));
 	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
-		ft_strjoin("Scale : 1/", ft_itoa(1 / fractal->zoom)));
+		scale);
+	free(scale);
 }
 
 // void display_julias_param(t_fractal *fractal)
