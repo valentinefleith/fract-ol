@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 13:53:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:57:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ static void	display_command_list(t_fractal *fractal, int *y)
 
 void	display_standard(t_fractal *fractal)
 {
+	char	*scale;
+	char	*final_scale;
+
 	if (fractal->set == 0)
 		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
 			"------- MANDELBROT SET -------");
@@ -48,8 +51,6 @@ void	display_standard(t_fractal *fractal)
 			"------- BURNING SHIP FRACTAL -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
-	char *scale;
-	char *final_scale;
 	scale = ft_itoa(1 / fractal->zoom);
 	final_scale = ft_strjoin("Scale : 1/", scale);
 	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
@@ -78,8 +79,8 @@ int	display_commands(t_fractal *fractal)
 		return (1);
 	}
 	background.addr = mlx_get_data_addr(background.img,
-			&background.bits_per_pixel, &background.line_length,
-			&background.endian);
+		&background.bits_per_pixel, &background.line_length,
+		&background.endian);
 	fractal->img = background;
 	mlx_put_image_to_window(fractal->mlx, fractal->win, background.img, 0, 0);
 	if (fractal->set == 0)
