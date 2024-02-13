@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 12:19:01 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:44:38 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_struct(t_fractal *fractal, t_img img)
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
 	fractal->help = 0;
+	fractal->lock = 1;
 }
 
 void	init_palette(t_fractal *fractal)
