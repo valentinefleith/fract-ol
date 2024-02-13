@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 13:49:41 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:53:58 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	init_fractal(t_fractal *fractal)
 
 	img.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	if (img.img == NULL)
-		return free_window(fractal);
+	{
+		free_window(fractal);
+		return ;
+	}
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	init_struct(fractal, img);
