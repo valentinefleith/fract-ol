@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 17:12:01 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:46:03 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,14 @@ void	display_standard(t_fractal *fractal)
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
 	scale = ft_itoa(1 / fractal->zoom);
+	if (scale == NULL)
+		return;
 	final_scale = ft_strjoin("Scale : 1/", scale);
+	if (final_scale == NULL)
+	{
+		free(scale);
+		return;
+	}
 	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
 		final_scale);
 	free(final_scale);
