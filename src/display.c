@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 19:58:28 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 20:08:29 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,25 @@ static void display_scale(t_fractal *fractal)
 	free(scale);
 }
 
+static void display_precision(t_fractal *fractal)
+{
+	char *precision;
+	char *formatted_precision;
+
+	precision = ft_itoa(fractal->max_iterations);
+	if (precision == NULL)
+		return;
+	formatted_precision = ft_strjoin("Precision : ", precision);
+	if (formatted_precision == NULL)
+	{
+		free(precision);
+		return;
+	}
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 50, BLACK, formatted_precision);
+	free(formatted_precision);
+	free(precision);
+}
+
 
 static char *format_julias_coord(char *x, char *y)
 {
@@ -79,7 +98,7 @@ static char *format_julias_coord(char *x, char *y)
 
 static void display_julias_param(t_fractal *fractal)
 {
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, HEIGHT - 70, BLACK, "Current julia point : ");
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 70, BLACK, "Current julia point : ");
 	char *julia_x;
 	char *julia_y;
 	char *coord;
@@ -100,7 +119,7 @@ static void display_julias_param(t_fractal *fractal)
 		free(julia_y);
 		return;
 	}
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, HEIGHT - 40, BLACK, coord);
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 40, BLACK, coord);
 	free(julia_x);
 	free(julia_y);
 	free(coord);
@@ -120,7 +139,9 @@ void	display_standard(t_fractal *fractal)
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
 	display_scale(fractal);
-	display_julias_param(fractal);
+	display_precision(fractal);
+	if (fractal->set == 1)
+		display_julias_param(fractal);
 }
 
 int	display_commands(t_fractal *fractal)
