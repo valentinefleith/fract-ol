@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 08:57:50 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/14 12:24:38 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:36:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ int	main(int argc, char **argv)
 	t_fractal	fractal;
 
 	if (!parse_args(argc, argv, &fractal))
-	{
-		//printf("%s\n", ft_dtoa(0.0120));
 		return (2);
-	}
-		//return (2);
 	fractal.mlx = mlx_init();
 	if (fractal.mlx == NULL)
 		return (1);

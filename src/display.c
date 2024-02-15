@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/14 11:46:03 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:31:46 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,11 @@ static void	display_command_list(t_fractal *fractal, int *y)
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
 }
 
-void	display_standard(t_fractal *fractal)
+static void display_scale(t_fractal *fractal)
 {
 	char	*scale;
 	char	*final_scale;
 
-	if (fractal->set == 0)
-		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
-			"------- MANDELBROT SET -------");
-	else if (fractal->set == 1)
-		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
-			"------- JULIA SET -------");
-	else if (fractal->set == 2)
-		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
-			"------- BURNING SHIP FRACTAL -------");
-	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
-		"Press h to display help");
 	scale = ft_itoa(1 / fractal->zoom);
 	if (scale == NULL)
 		return;
@@ -66,10 +55,71 @@ void	display_standard(t_fractal *fractal)
 	free(scale);
 }
 
-// void display_julias_param(t_fractal *fractal)
-//{
-//	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 20, 30, BLACK, "Current julia point : ");
-//}
+
+static char *format_julias_coord(char *x, char *y)
+{
+	char *real_part;
+	char *imaginary_part;
+	char *coord;
+
+	real_part = ft_strjoin(x, " + ");
+	if (real_part == NULL)
+		return NULL;
+	imaginary_part = ft_strjoin(y, "i");
+	if (imaginary_part == NULL)
+	{
+		free(real_part);
+		return NULL;
+	}
+	coord = ft_strjoin(real_part, imaginary_part);
+	return coord;
+}
+
+static void display_julias_param(t_fractal *fractal)
+{
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, HEIGHT - 70, BLACK, "Current julia point : ");
+	char *julia_x;
+	char *julia_y;
+	char *coord;
+
+	julia_x = ft_dtoa(fractal->current_point.real);
+	if (julia_x == NULL)
+		return;
+	julia_y = ft_dtoa(fractal->current_point.imaginary);
+	if (julia_y == NULL)
+	{
+		free(julia_x);
+		return;
+	}
+	coord = format_julias_coord(julia_x, julia_y); // check NULL return
+	if (coord == NULL)
+	{
+		free(julia_x);
+		free(julia_y);
+		return;
+	}
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, HEIGHT - 40, BLACK, coord);
+	free(julia_x);
+	free(julia_y);
+	free(coord);
+}
+
+void	display_standard(t_fractal *fractal)
+{
+	if (fractal->set == 0)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
+			"------- MANDELBROT SET -------");
+	else if (fractal->set == 1)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
+			"------- JULIA SET -------");
+	else if (fractal->set == 2)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
+			"------- BURNING SHIP FRACTAL -------");
+	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
+		"Press h to display help");
+	display_scale(fractal);
+	display_julias_param(fractal);
+}
 
 int	display_commands(t_fractal *fractal)
 {

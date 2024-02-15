@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:13:20 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 19:05:25 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:37:14 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,13 @@ char *ft_dtoa(double n)
 	int dot_index;
 	char *conversion;
 	char *output;
-
+	int is_neg;
+	is_neg = 0;
+	if (n < 0)
+	{
+		is_neg = 1;
+		n *= -1;
+	}
 	n *= precision;
 	conversion = ft_itoa(n);
 	size_t conv_len = ft_strlen(conversion);
@@ -101,6 +107,8 @@ char *ft_dtoa(double n)
 	}
 	dot_index = ft_strlen(conversion) - 4;
 	output = ft_strinsert(conversion, '.', dot_index);
+	if (is_neg)
+		output = ft_strinsert(output, '-', 0); // /!\ LEAKS
 	free(conversion);
 	return output;
 }
