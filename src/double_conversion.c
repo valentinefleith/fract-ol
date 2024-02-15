@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:13:20 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/14 12:22:58 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:05:25 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ static char *ft_strinsert(char *str, char c, int index)
 	return new_str;
 }
 
+static char *add_starting_zeros(char *str, int nb)
+{
+	char *new_str = malloc(1 + ft_strlen(str) + nb);
+	if (new_str == NULL)
+		return NULL;
+	int i = 0;
+	while (i < nb)
+	{
+		new_str[i] = '0';
+		i++;
+	}
+	ft_strlcpy(new_str + i, str, ft_strlen(str) + 1);
+	free(str);
+	return new_str;
+}
+
 char *ft_dtoa(double n)
 {
 	int precision = 10000;
@@ -77,6 +93,12 @@ char *ft_dtoa(double n)
 
 	n *= precision;
 	conversion = ft_itoa(n);
+	size_t conv_len = ft_strlen(conversion);
+	if (conv_len < 5)
+	{
+		conversion = add_starting_zeros(conversion, 5 - conv_len);
+		conv_len = 5;
+	}
 	dot_index = ft_strlen(conversion) - 4;
 	output = ft_strinsert(conversion, '.', dot_index);
 	free(conversion);
