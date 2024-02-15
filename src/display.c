@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 19:31:46 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:58:28 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static char *format_julias_coord(char *x, char *y)
 		return NULL;
 	}
 	coord = ft_strjoin(real_part, imaginary_part);
+	free(real_part);
+	free(imaginary_part);
 	return coord;
 }
 
