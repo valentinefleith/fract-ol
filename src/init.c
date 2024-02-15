@@ -6,11 +6,12 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 20:17:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/15 20:59:04 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void	init_struct(t_fractal *fractal, t_img img)
 {
@@ -30,7 +31,7 @@ void	init_struct(t_fractal *fractal, t_img img)
 	else
 		fractal->shiftx = 0;
 	fractal->shifty = 0;
-	//if (!fractal->current_point.real)
+	//if (!fractal->currentpoint.real)
 	//	fractal->current_point.real = 0.285;
 	//if (!fractal->current_point.imaginary)
 	//	fractal->current_point.imaginary = 0.01;
