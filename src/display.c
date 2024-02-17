@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 20:08:29 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/16 22:05:38 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,25 @@ static void	display_command_list(t_fractal *fractal, int *y)
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
 }
 
-static void display_scale(t_fractal *fractal)
-{
-	char	*scale;
-	char	*final_scale;
-
-	scale = ft_itoa(1 / fractal->zoom);
-	if (scale == NULL)
-		return;
-	final_scale = ft_strjoin("Scale : 1/", scale);
-	if (final_scale == NULL)
-	{
-		free(scale);
-		return;
-	}
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
-		final_scale);
-	free(final_scale);
-	free(scale);
-}
+//static void display_scale(t_fractal *fractal)
+//{
+//	char	*scale;
+//	char	*final_scale;
+//
+//	scale = ft_itoa(1 / fractal->zoom);
+//	if (scale == NULL)
+//		return;
+//	final_scale = ft_strjoin("Scale : 1/", scale);
+//	if (final_scale == NULL)
+//	{
+//		free(scale);
+//		return;
+//	}
+//	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
+//		final_scale);
+//	free(final_scale);
+//	free(scale);
+//}
 
 static void display_precision(t_fractal *fractal)
 {
@@ -138,7 +138,7 @@ void	display_standard(t_fractal *fractal)
 			"------- BURNING SHIP FRACTAL -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
-	display_scale(fractal);
+	//display_scale(fractal);
 	display_precision(fractal);
 	if (fractal->set == 1)
 		display_julias_param(fractal);
