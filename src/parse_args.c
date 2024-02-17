@@ -6,11 +6,24 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 21:01:51 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:43:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static int count_char_in_str(char c, char *str)
+{
+	int count;
+	count = 0;
+	while (*str)
+	{
+		if (*str == c)
+			count++;
+		str++;
+	}
+	return count;
+}
 
 static int nb_is_valid(char *argv)
 {
@@ -21,6 +34,8 @@ static int nb_is_valid(char *argv)
 			return 0;
 		i++;
 	}
+	if (count_char_in_str('.', argv) > 1 || count_char_in_str('-', argv) > 1)
+		return 0;
 	return 1;
 }
 
