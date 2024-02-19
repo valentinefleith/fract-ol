@@ -12,7 +12,6 @@
 
 #include "fractol.h"
 
-
 void	display_string_centered(t_fractal *fractal, int *y, char *str)
 {
 	int	x;
