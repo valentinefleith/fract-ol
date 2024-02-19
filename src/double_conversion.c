@@ -6,38 +6,38 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:13:20 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/17 12:17:50 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:51:50 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <math.h>
 
-static double ft_get_dot_pos(char *str)
+static double	ft_get_dot_pos(char *str)
 {
-	double pos;
-	
+	double	pos;
+
 	pos = 0;
 	while (*str)
 	{
 		if (*str == '.')
-			return pos;
+			return (pos);
 		pos++;
 		str++;
 	}
-	return -1;
+	return (-1);
 }
 
-double ft_atod(char *str)
+double	ft_atod(char *str)
 {
-	int is_neg;
-	double output;
-	double dot_pos;
-	
-	dot_pos = ft_strlen(str) - ft_get_dot_pos(str) - 1;
+	int		is_neg;
+	double	output;
+	double	dot_pos;
 
+	dot_pos = ft_get_dot_pos(str);
 	if (dot_pos < 0)
-		return ft_atoi(str);
+		return (ft_atoi(str));
+	dot_pos = ft_strlen(str) - dot_pos - 1;
 	is_neg = 0;
 	if (*str == '-')
 	{
@@ -52,11 +52,11 @@ double ft_atod(char *str)
 		str++;
 	}
 	if (is_neg)
-		return -output / pow(10, dot_pos);
-	return output / pow(10, dot_pos);
+		return (-output / pow(10, dot_pos));
+	return (output / pow(10, dot_pos));
 }
 
-//double ft_atod(char *str)
+// double ft_atod(char *str)
 //{
 //	// en partant du principe que l'input est correct
 //	int is_neg = 0;
@@ -74,7 +74,7 @@ double ft_atod(char *str)
 //		str++;
 //	}
 //	if (!*str)
-//		return output;
+//		return (output);
 //	str++;
 //	int x = 1;
 //	while (*str && ft_isdigit(*str))
@@ -84,18 +84,21 @@ double ft_atod(char *str)
 //		x++;
 //	}
 //	if (is_neg)
-//		return -output;
-//	return output;
+//		return (-output);
+//	return (output);
 //}
 
-static char *ft_strinsert_andfree(char *str, char c, int index)
+static char	*ft_strinsert_andfree(char *str, char c, int index)
 {
-	char *new_str = malloc(ft_strlen(str) + 2);
-	if (new_str == NULL)
-		return NULL;
-	int src_index = 0;
-	int dest_index = 0;
+	char	*new_str;
+	int		src_index;
+	int		dest_index;
 
+	new_str = malloc(ft_strlen(str) + 2);
+	if (new_str == NULL)
+		return (NULL);
+	src_index = 0;
+	dest_index = 0;
 	while (str[src_index])
 	{
 		if (dest_index == index)
@@ -109,15 +112,18 @@ static char *ft_strinsert_andfree(char *str, char c, int index)
 	}
 	new_str[dest_index] = '\0';
 	free(str);
-	return new_str;
+	return (new_str);
 }
 
-static char *add_starting_zeros_andfree(char *str, int nb)
+static char	*add_starting_zeros_andfree(char *str, int nb)
 {
-	char *new_str = malloc(1 + ft_strlen(str) + nb);
+	char	*new_str;
+	int		i;
+
+	new_str = malloc(1 + ft_strlen(str) + nb);
 	if (new_str == NULL)
-		return NULL;
-	int i = 0;
+		return (NULL);
+	i = 0;
 	while (i < nb)
 	{
 		new_str[i] = '0';
@@ -125,16 +131,19 @@ static char *add_starting_zeros_andfree(char *str, int nb)
 	}
 	ft_strlcpy(new_str + i, str, ft_strlen(str) + 1);
 	free(str);
-	return new_str;
+	return (new_str);
 }
 
-char *ft_dtoa(double n)
+char	*ft_dtoa(double n)
 {
-	int precision = 10000;
-	//int dot_index;
-	char *conversion;
-	char *output;
-	int is_neg;
+	int		precision;
+	char	*conversion;
+	char	*output;
+	int		is_neg;
+	size_t	conv_len;
+
+	precision = 10000;
+	// int dot_index;
 	is_neg = 0;
 	if (n < 0)
 	{
@@ -143,15 +152,15 @@ char *ft_dtoa(double n)
 	}
 	n *= precision;
 	conversion = ft_itoa(n);
-	size_t conv_len = ft_strlen(conversion);
+	conv_len = ft_strlen(conversion);
 	if (conv_len < 5)
 	{
 		conversion = add_starting_zeros_andfree(conversion, 5 - conv_len);
 		conv_len = 5;
 	}
-	//dot_index = ft_strlen(conversion) - 4;
+	// dot_index = ft_strlen(conversion) - 4;
 	output = ft_strinsert_andfree(conversion, '.', ft_strlen(conversion) - 4);
 	if (is_neg)
 		output = ft_strinsert_andfree(output, '-', 0);
-	return output;
+	return (output);
 }
