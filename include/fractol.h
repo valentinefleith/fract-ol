@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:10:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:33:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ t_complex		rescale_pixel(t_pixel px, t_fractal *fractal);
 int				parse_args(int argc, char **argv, t_fractal *fractal);
 int				check_limits(int value, int min, int max);
 int 			free_window(t_fractal *fractal);
+void	display_string_centered(t_fractal *fractal, int *y, char *str);
 double ft_atod(char *str);
 char *ft_dtoa(double n);
 

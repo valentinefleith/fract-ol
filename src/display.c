@@ -6,20 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:10:49 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:41:29 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static void	display_string_centered(t_fractal *fractal, int *y, char *str)
-{
-	int	x;
-
-	x = (WIDTH - ft_strlen(str) * 6) / 2;
-	mlx_string_put(fractal->mlx, fractal->win, x, *y, WHITE, str);
-	*y += LINE_LENGTH;
-}
 
 static void	display_command_list(t_fractal *fractal, int *y)
 {
@@ -35,45 +26,25 @@ static void	display_command_list(t_fractal *fractal, int *y)
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
 }
 
-//static void display_scale(t_fractal *fractal)
-//{
-//	char	*scale;
-//	char	*final_scale;
-//
-//	scale = ft_itoa(1 / fractal->zoom);
-//	if (scale == NULL)
-//		return;
-//	final_scale = ft_strjoin("Scale : 1/", scale);
-//	if (final_scale == NULL)
-//	{
-//		free(scale);
-//		return;
-//	}
-//	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 30, BLACK,
-//		final_scale);
-//	free(final_scale);
-//	free(scale);
-//}
-
-static void display_precision(t_fractal *fractal)
+static void	display_precision(t_fractal *fractal)
 {
-	char *precision;
-	char *formatted_precision;
+	char	*precision;
+	char	*formatted_precision;
 
 	precision = ft_itoa(fractal->max_iterations);
 	if (precision == NULL)
-		return;
+		return ;
 	formatted_precision = ft_strjoin("Precision : ", precision);
 	if (formatted_precision == NULL)
 	{
 		free(precision);
-		return;
+		return ;
 	}
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 50, BLACK, formatted_precision);
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 130, 50, BLACK,
+		formatted_precision);
 	free(formatted_precision);
 	free(precision);
 }
-
 
 void	display_standard(t_fractal *fractal)
 {
@@ -88,19 +59,15 @@ void	display_standard(t_fractal *fractal)
 			"------- BURNING SHIP FRACTAL -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
-	//display_scale(fractal);
 	display_precision(fractal);
 	if (fractal->set == 1)
 		display_julias_param(fractal);
 }
 
-int	display_commands(t_fractal *fractal)
+static void	display_black_window(t_fractal *fractal)
 {
-	int		y;
 	t_img	background;
 
-	y = 30;
-	fractal->help = 1;
 	mlx_destroy_image(fractal->mlx, fractal->img.img);
 	background.img = mlx_new_image(fractal->mlx, WIDTH, HEIGHT);
 	if (background.img == NULL)
@@ -109,10 +76,19 @@ int	display_commands(t_fractal *fractal)
 		exit(1);
 	}
 	background.addr = mlx_get_data_addr(background.img,
-		&background.bits_per_pixel, &background.line_length,
-		&background.endian);
+			&background.bits_per_pixel, &background.line_length,
+			&background.endian);
 	fractal->img = background;
 	mlx_put_image_to_window(fractal->mlx, fractal->win, background.img, 0, 0);
+}
+
+int	display_commands(t_fractal *fractal)
+{
+	int	y;
+
+	y = 30;
+	fractal->help = 1;
+	display_black_window(fractal);
 	if (fractal->set == 0)
 		display_string_centered(fractal, &y, "------- MANDELBROT SET -------");
 	else if (fractal->set == 1)
