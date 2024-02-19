@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:33:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:48:19 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 
 # define MALLOC_ERROR 1
 
-# define HEIGHT 960
-//#define HEIGHT 720
-# define WIDTH 1080
-//#define WIDTH 810
+//# define HEIGHT 960
+#define HEIGHT 720
+//# define WIDTH 1080
+#define WIDTH 810
 # define MAX_ITERATIONS 200
 # define MIN_ITERATIONS 30
 
@@ -107,11 +107,13 @@ int				change_precision(t_fractal *fractal, int keycode);
 int				handle_shift(t_fractal *fractal, int keycode);
 int				change_brightness(t_fractal *fractal, int keycode);
 int				exit_program(t_fractal *fractal);
+int				handle_lock(t_fractal *fractal);
+int				handle_help(t_fractal *fractal);
 
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);
 void			display_standard(t_fractal *fractal);
-void 			display_julias_param(t_fractal *fractal);
+void			display_julias_param(t_fractal *fractal);
 
 // ====== INIT =======
 void			init_fractal(t_fractal *fractal);
@@ -125,9 +127,9 @@ t_complex		convert_pixel_into_complex(t_pixel px, t_fractal *fractal);
 t_complex		rescale_pixel(t_pixel px, t_fractal *fractal);
 int				parse_args(int argc, char **argv, t_fractal *fractal);
 int				check_limits(int value, int min, int max);
-int 			free_window(t_fractal *fractal);
-void	display_string_centered(t_fractal *fractal, int *y, char *str);
-double ft_atod(char *str);
-char *ft_dtoa(double n);
+int				free_window(t_fractal *fractal);
+void			display_string_centered(t_fractal *fractal, int *y, char *str);
+double			ft_atod(char *str);
+char			*ft_dtoa(double n);
 
 #endif

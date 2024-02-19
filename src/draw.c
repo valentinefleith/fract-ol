@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:46:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:31:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ void	calculate_and_put_pixels(t_fractal *fractal)
 		i++;
 	}
 }
-

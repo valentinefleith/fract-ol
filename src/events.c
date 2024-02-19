@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 01:13:29 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:55:07 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,10 @@ int	key_events(int keycode, t_fractal *fractal)
 	}
 	if (keycode == KEY_B || keycode == KEY_D)
 		return (change_brightness(fractal, keycode));
-	if (keycode == KEY_H && fractal->help == 0)
-		return (display_commands(fractal));
-	if (keycode == KEY_H && fractal->help == 1)
-	{
-		fractal->help = 0;
-		fractal_refresh(fractal);
-	}
+	if (keycode == KEY_H)
+		return (handle_help(fractal));
 	if (keycode == KEY_L)
-	{
-		if (fractal->lock)
-			fractal->lock = 0;
-		else
-			fractal->lock = 1;
-	}
+		return (handle_lock(fractal));
 	return (0);
 }
 
@@ -81,5 +71,14 @@ int	change_precision(t_fractal *fractal, int keycode)
 			fractal->max_iterations--;
 	}
 	fractal_refresh(fractal);
+	return (0);
+}
+
+int	handle_lock(t_fractal *fractal)
+{
+	if (fractal->lock)
+		fractal->lock = 0;
+	else
+		fractal->lock = 1;
 	return (0);
 }
