@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:13:20 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 10:51:50 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:53:30 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,38 +55,6 @@ double	ft_atod(char *str)
 		return (-output / pow(10, dot_pos));
 	return (output / pow(10, dot_pos));
 }
-
-// double ft_atod(char *str)
-//{
-//	// en partant du principe que l'input est correct
-//	int is_neg = 0;
-//	if (*str == '-')
-//	{
-//		is_neg = 1;
-//		str++;
-//	}
-//	double output;
-//
-//	output = 0.0;
-//	while (*str && ft_isdigit(*str) && *str != '.')
-//	{
-//		output = output * 10 + (*str - '0');
-//		str++;
-//	}
-//	if (!*str)
-//		return (output);
-//	str++;
-//	int x = 1;
-//	while (*str && ft_isdigit(*str))
-//	{
-//		output = output + (*str - '0') / pow(10, x);
-//		str++;
-//		x++;
-//	}
-//	if (is_neg)
-//		return (-output);
-//	return (output);
-//}
 
 static char	*ft_strinsert_andfree(char *str, char c, int index)
 {
@@ -143,7 +111,6 @@ char	*ft_dtoa(double n)
 	size_t	conv_len;
 
 	precision = 10000;
-	// int dot_index;
 	is_neg = 0;
 	if (n < 0)
 	{
@@ -158,7 +125,6 @@ char	*ft_dtoa(double n)
 		conversion = add_starting_zeros_andfree(conversion, 5 - conv_len);
 		conv_len = 5;
 	}
-	// dot_index = ft_strlen(conversion) - 4;
 	output = ft_strinsert_andfree(conversion, '.', ft_strlen(conversion) - 4);
 	if (is_neg)
 		output = ft_strinsert_andfree(output, '-', 0);
