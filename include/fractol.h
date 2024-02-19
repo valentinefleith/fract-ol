@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 20:10:23 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:10:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int				exit_program(t_fractal *fractal);
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);
 void			display_standard(t_fractal *fractal);
+void 			display_julias_param(t_fractal *fractal);
 
 // ====== INIT =======
 void			init_fractal(t_fractal *fractal);
