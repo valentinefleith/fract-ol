@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:10:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:24:20 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,52 +53,56 @@ int	change_julias_shape(int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-static char *format_julias_coord(char *x, char *y)
+static char	*format_julias_coord(char *x, char *y)
 {
-	char *real_part;
-	char *imaginary_part;
-	char *coord;
+	char	*real_part;
+	char	*imaginary_part;
+	char	*coord;
 
 	real_part = ft_strjoin(x, " + ");
 	if (real_part == NULL)
-		return NULL;
+		return (NULL);
 	imaginary_part = ft_strjoin(y, "i");
 	if (imaginary_part == NULL)
 	{
 		free(real_part);
-		return NULL;
+		return (NULL);
 	}
 	coord = ft_strjoin(real_part, imaginary_part);
 	free(real_part);
 	free(imaginary_part);
-	return coord;
+	return (coord);
 }
 
-void display_julias_param(t_fractal *fractal)
+static void	display_coord_on_window(t_fractal *fractal, char *x, char *y)
 {
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 70, BLACK, "Current julia point : ");
-	char *julia_x;
-	char *julia_y;
-	char *coord;
+	char	*coord;
 
+	coord = format_julias_coord(x, y);
+	if (coord == NULL)
+		return ;
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 40, BLACK,
+		coord);
+	free(coord);
+}
+
+void	display_julias_param(t_fractal *fractal)
+{
+	char	*julia_x;
+	char	*julia_y;
+
+	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 70, BLACK,
+		"Current julia point : ");
 	julia_x = ft_dtoa(fractal->current_point.real);
 	if (julia_x == NULL)
-		return;
+		return ;
 	julia_y = ft_dtoa(fractal->current_point.imaginary);
 	if (julia_y == NULL)
 	{
 		free(julia_x);
-		return;
+		return ;
 	}
-	coord = format_julias_coord(julia_x, julia_y);
-	if (coord == NULL)
-	{
-		free(julia_x);
-		free(julia_y);
-		return;
-	}
-	mlx_string_put(fractal->mlx, fractal->win, WIDTH - 140, HEIGHT - 40, BLACK, coord);
+	display_coord_on_window(fractal, julia_x, julia_y);
 	free(julia_x);
 	free(julia_y);
-	free(coord);
 }
