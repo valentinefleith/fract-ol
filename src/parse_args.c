@@ -6,15 +6,16 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/17 12:43:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:58:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int count_char_in_str(char c, char *str)
+static int	count_char_in_str(char c, char *str)
 {
-	int count;
+	int	count;
+
 	count = 0;
 	while (*str)
 	{
@@ -22,24 +23,26 @@ static int count_char_in_str(char c, char *str)
 			count++;
 		str++;
 	}
-	return count;
+	return (count);
 }
 
-static int nb_is_valid(char *argv)
+static int	nb_is_valid(char *argv)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (argv[i])
 	{
 		if (!ft_isdigit(argv[i]) && argv[i] != '.' && argv[i] != '-')
-			return 0;
+			return (0);
 		i++;
 	}
 	if (count_char_in_str('.', argv) > 1 || count_char_in_str('-', argv) > 1)
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
 
-static void parse_julias_param(int argc, char **argv, t_fractal *fractal)
+static void	parse_julias_param(int argc, char **argv, t_fractal *fractal)
 {
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
@@ -67,7 +70,6 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	else if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
 	{
 		fractal->set = 1;
-		//if (argc == 4)
 		parse_julias_param(argc, argv, fractal);
 	}
 	else if (!ft_strncmp(argv[1], "ship", ft_strlen("ship")))

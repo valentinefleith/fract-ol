@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/15 20:59:04 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:57:54 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void	init_struct(t_fractal *fractal, t_img img)
 	else
 		fractal->shiftx = 0;
 	fractal->shifty = 0;
-	//if (!fractal->currentpoint.real)
-	//	fractal->current_point.real = 0.285;
-	//if (!fractal->current_point.imaginary)
-	//	fractal->current_point.imaginary = 0.01;
 	fractal->help = 0;
 	fractal->lock = 1;
 }
@@ -62,7 +58,7 @@ void	init_fractal(t_fractal *fractal)
 	if (img.img == NULL)
 	{
 		free_window(fractal);
-		exit(1) ;
+		exit(1);
 	}
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
