@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:44:15 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/13 00:39:18 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 22:00:16 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@
 # define KEY_D 0x0064
 # define KEY_B 0x0062
 # define KEY_L 0x006c
+# define KEY_F 0x0066
 
 #endif

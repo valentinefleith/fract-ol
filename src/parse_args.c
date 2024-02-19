@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 10:58:15 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 22:04:36 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,7 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
 		fractal->set = 0;
 	else if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
-	{
 		fractal->set = 1;
-		parse_julias_param(argc, argv, fractal);
-	}
 	else if (!ft_strncmp(argv[1], "ship", ft_strlen("ship")))
 		fractal->set = 2;
 	else
@@ -79,5 +76,6 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n\t- ship\n");
 		return (0);
 	}
+	parse_julias_param(argc, argv, fractal);
 	return (1);
 }

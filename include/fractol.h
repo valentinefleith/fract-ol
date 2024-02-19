@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 21:48:19 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:59:32 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int				change_brightness(t_fractal *fractal, int keycode);
 int				exit_program(t_fractal *fractal);
 int				handle_lock(t_fractal *fractal);
 int				handle_help(t_fractal *fractal);
+int 			change_fractal(t_fractal *fractal);
 
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);
