@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 21:59:32 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:39:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # define MALLOC_ERROR 1
 
 //# define HEIGHT 960
-#define HEIGHT 720
+# define HEIGHT 720
 //# define WIDTH 1080
-#define WIDTH 810
+# define WIDTH 810
 # define MAX_ITERATIONS 200
 # define MIN_ITERATIONS 30
 

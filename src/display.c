@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:41:29 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:41:24 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 static void	display_command_list(t_fractal *fractal, int *y)
 {
-	display_string_centered(fractal, y, "arrows : Move");
-	display_string_centered(fractal, y, "mouse wheel : Zoom");
-	display_string_centered(fractal, y, "p : Add precision");
-	display_string_centered(fractal, y, "m : Decrease precision");
-	display_string_centered(fractal, y, "c : Change colorset");
-	display_string_centered(fractal, y, "d : Add darkness");
-	display_string_centered(fractal, y, "b : Add brightness");
-	display_string_centered(fractal, y, "r : Reset");
+	display_string_centered(fractal, y, "arrows : move");
+	display_string_centered(fractal, y, "mouse wheel : zoom");
+	display_string_centered(fractal, y, "p : add precision");
+	display_string_centered(fractal, y, "m : decrease precision");
+	display_string_centered(fractal, y, "c : change colorset");
+	display_string_centered(fractal, y, "d : add darkness");
+	display_string_centered(fractal, y, "b : add brightness");
+	display_string_centered(fractal, y, "r : reset");
+	display_string_centered(fractal, y, "f : change fractal set");
 	if (fractal->set == 1)
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
 }
