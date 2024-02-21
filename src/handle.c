@@ -12,7 +12,6 @@
 
 #include "fractol.h"
 
-
 int	change_precision(t_fractal *fractal, int keycode)
 {
 	if (keycode == KEY_P)
@@ -47,12 +46,12 @@ int	handle_help(t_fractal *fractal)
 	return (0);
 }
 
-int change_fractal(t_fractal *fractal)
+int	change_fractal(t_fractal *fractal)
 {
 	if (fractal->set == 2)
 		fractal->set = 0;
 	else
 		fractal->set++;
 	fractal_refresh(fractal);
-	return 0;
+	return (0);
 }

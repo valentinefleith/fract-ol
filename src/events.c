@@ -59,4 +59,3 @@ int	mouse_move(int x, int y, t_fractal *fractal)
 	change_julias_shape(x, y, fractal);
 	return (0);
 }
-
