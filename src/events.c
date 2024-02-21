@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 22:00:18 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:35:13 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,3 @@ int	mouse_move(int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-int	change_precision(t_fractal *fractal, int keycode)
-{
-	if (keycode == KEY_P)
-	{
-		if (fractal->max_iterations < MAX_ITERATIONS)
-			fractal->max_iterations++;
-	}
-	if (keycode == KEY_M)
-	{
-		if (fractal->max_iterations > MIN_ITERATIONS)
-			fractal->max_iterations--;
-	}
-	fractal_refresh(fractal);
-	return (0);
-}
-
-int	handle_lock(t_fractal *fractal)
-{
-	if (fractal->lock)
-		fractal->lock = 0;
-	else
-		fractal->lock = 1;
-	return (0);
-}

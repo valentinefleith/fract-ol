@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:31:18 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 22:00:31 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:33:37 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,3 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	handle_help(t_fractal *fractal)
-{
-	if (fractal->help == 0)
-		return (display_commands(fractal));
-	fractal->help = 0;
-	fractal_refresh(fractal);
-	return (0);
-}
-
-int change_fractal(t_fractal *fractal)
-{
-	if (fractal->set == 2)
-		fractal->set = 0;
-	else
-		fractal->set++;
-	fractal_refresh(fractal);
-	return 0;
-}
