@@ -6,11 +6,11 @@
 #    By: vafleith <vafleith@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/21 15:32:36 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/26 18:07:14 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fract-ol
+NAME = fractol
 
 CC = cc
 CFLAGS = -Wall -Wextra -g3
