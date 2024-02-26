@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 11:24:20 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:50:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	calculate_julia(t_pixel px, t_fractal *fractal)
 
 	point = rescale_pixel(px, fractal);
 	c.real = fractal->current_point.real;
-	c.imaginary = fractal->current_point.imaginary;
+	c.imaginary = -fractal->current_point.imaginary;
 	i = 0;
 	r_square = point.real * point.real;
 	i_square = point.imaginary * point.imaginary;
