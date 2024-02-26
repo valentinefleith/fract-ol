@@ -24,6 +24,7 @@ void	display_string_centered(t_fractal *fractal, int *y, char *str)
 t_complex	rescale_pixel(t_pixel px, t_fractal *fractal)
 {
 	t_complex	point;
+
 	point.real = (px.x * (fractal->xmax - fractal->xmin) / WIDTH)
 		+ fractal->xmin;
 	point.real = point.real * fractal->zoom + fractal->shiftx;
