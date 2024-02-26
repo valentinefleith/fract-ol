@@ -109,7 +109,7 @@ int				change_brightness(t_fractal *fractal, int keycode);
 int				exit_program(t_fractal *fractal);
 int				handle_lock(t_fractal *fractal);
 int				handle_help(t_fractal *fractal);
-int 			change_fractal(t_fractal *fractal);
+int				change_fractal(t_fractal *fractal);
 
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);
