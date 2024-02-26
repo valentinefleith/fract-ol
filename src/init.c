@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 10:57:54 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:36:23 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,18 @@ void	init_struct(t_fractal *fractal, t_img img)
 	init_palette(fractal);
 	fractal->colorset = fractal->palette[0];
 	fractal->brightness = 5;
+	if (fractal->set == 1)
+	{
+		fractal->ymax = -1.2;
+		fractal->ymin = 1.2;
+	}
+	else
+	{
+		fractal->ymin = -1.2;
+		fractal->ymax = 1.2;
+	}
 	fractal->xmin = -2.1;
 	fractal->xmax = 0.6;
-	fractal->ymin = -1.2;
-	fractal->ymax = 1.2;
 	fractal->zoom = 1;
 	fractal->max_iterations = MIN_ITERATIONS;
 	if (fractal->set == 1)
