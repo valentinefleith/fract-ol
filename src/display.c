@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 17:06:39 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:33:35 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ static void	display_command_list(t_fractal *fractal, int *y)
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
 		display_string_centered(fractal, y,
 			"click : change julia's current point");
+	}
+	if (fractal->set == 3)
+	{
+		display_string_centered(fractal, y, "==== SPECIFIC TO MULTIBROT ====");
+		display_string_centered(fractal, y, "t : next power");
 	}
 }
 
@@ -67,6 +72,9 @@ void	display_standard(t_fractal *fractal)
 	else if (fractal->set == 2)
 		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
 			"------- BURNING SHIP FRACTAL -------");
+	else if (fractal->set == 3)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
+			"------- MULTIBROT SET -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
 	display_precision(fractal);
@@ -106,6 +114,8 @@ int	display_commands(t_fractal *fractal)
 	else if (fractal->set == 2)
 		display_string_centered(fractal, &y,
 			"------- BURNING SHIP FRACTAL -------");
+	else if (fractal->set == 3)
+		display_string_centered(fractal, &y, "------- MULTIBROT SET -------");
 	y += LINE_LENGTH;
 	display_command_list(fractal, &y);
 	return (0);
