@@ -22,7 +22,8 @@ and deal with keyboard and mouse events.
 
 ![image](https://github.com/valentinefleith/fract-ol/assets/125041345/9e62a644-4701-43e4-96d6-63e80c8a14e8)
 
-![image](https://github.com/valentinefleith/fract-ol/assets/125041345/74427746-f8f1-4434-ad8a-40e12e182d70)
+![image](https://github.com/valentinefleith/fract-ol/assets/125041345/70f4b040-e8a1-46a0-9c26-d8be9b84b056)
+
 
 
 ## Burning ship fractal
