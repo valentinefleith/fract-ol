@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/20 19:39:23 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:43:20 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 //# define WIDTH 1080
 # define WIDTH 810
 # define MAX_ITERATIONS 200
-# define MIN_ITERATIONS 30
+# define MIN_ITERATIONS 60
 
 # define MAX 4
 
