@@ -74,7 +74,7 @@ typedef struct s_fractal
 	int			help;
 	int			brightness;
 	int			lock;
-	int power;
+	int			power;
 
 }				t_fractal;
 
@@ -117,7 +117,7 @@ int				handle_lock(t_fractal *fractal);
 int				handle_help(t_fractal *fractal);
 int				handle_rgb(t_fractal *fractal, int keycode);
 int				change_fractal(t_fractal *fractal);
-int change_mandel(t_fractal *fractal);
+int				change_mandel(t_fractal *fractal);
 
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);

@@ -36,7 +36,7 @@ int	key_events(int keycode, t_fractal *fractal)
 	if (keycode == KEY_R || keycode == KEY_G || keycode == KEY_B)
 		return (handle_rgb(fractal, keycode));
 	if (keycode == KEY_T)
-		return change_mandel(fractal);
+		return (change_mandel(fractal));
 	return (0);
 }
 
