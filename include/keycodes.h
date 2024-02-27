@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:44:15 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 14:06:16 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:10:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # define KEY_H 0x0068
 // ====== COLORS ======
 # define KEY_C 0x0063
-
 # define KEY_R 0x0072
 # define KEY_G 0x0067
 # define KEY_B 0x0062
@@ -41,5 +40,4 @@
 // ====== RESET ======
 # define KEY_SPACE 0x0020
 
-# define KEY_D 0x0064
 #endif
