@@ -25,7 +25,7 @@ int	key_events(int keycode, t_fractal *fractal)
 		|| keycode == KEY_DOWN)
 		return (handle_shift(fractal, keycode));
 	if (keycode == KEY_SPACE)
-		return reset_fractal(fractal);
+		return (reset_fractal(fractal));
 	if (keycode == KEY_1 || keycode == KEY_2)
 		return (change_brightness(fractal, keycode));
 	if (keycode == KEY_H)
@@ -35,7 +35,7 @@ int	key_events(int keycode, t_fractal *fractal)
 	if (keycode == KEY_F)
 		return (change_fractal(fractal));
 	if (keycode == KEY_R || keycode == KEY_G || keycode == KEY_B)
-		return handle_rgb(fractal, keycode);
+		return (handle_rgb(fractal, keycode));
 	return (0);
 }
 
@@ -58,9 +58,9 @@ int	mouse_move(int x, int y, t_fractal *fractal)
 	return (0);
 }
 
-int reset_fractal(t_fractal *fractal)
+int	reset_fractal(t_fractal *fractal)
 {
 	init_struct(fractal, fractal->img);
 	fractal_refresh(fractal);
-	return 0;
+	return (0);
 }

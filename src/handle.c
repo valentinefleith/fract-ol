@@ -56,7 +56,7 @@ int	change_fractal(t_fractal *fractal)
 	return (0);
 }
 
-int handle_rgb(t_fractal *fractal, int keycode)
+int	handle_rgb(t_fractal *fractal, int keycode)
 {
 	if (keycode == KEY_R)
 		fractal->red += 0.1;

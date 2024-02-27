@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 17:04:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:06:39 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ static void	display_command_list(t_fractal *fractal, int *y)
 	*y += LINE_LENGTH;
 	display_string_centered(fractal, y, "==== COLORS ====");
 	display_string_centered(fractal, y, "c : change colorset");
-	display_string_centered(fractal, y, "1 / 2 : add darkness / add brightness");
+	display_string_centered(fractal, y, "1 / 2 : add darkness / brightness");
 	display_string_centered(fractal, y, "r / g / b : add red / green / blue");
 	*y += LINE_LENGTH;
 	if (fractal->set == 1)
 	{
 		display_string_centered(fractal, y, "==== SPECIFIC TO JULIA ====");
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
-		display_string_centered(fractal, y, "click : change julia's current point");
+		display_string_centered(fractal, y,
+			"click : change julia's current point");
 	}
 }
 
