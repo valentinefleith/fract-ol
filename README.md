@@ -22,7 +22,8 @@ and deal with keyboard and mouse events.
 
 ![image](https://github.com/valentinefleith/fract-ol/assets/125041345/9e62a644-4701-43e4-96d6-63e80c8a14e8)
 
-![image](https://github.com/valentinefleith/fract-ol/assets/125041345/70f4b040-e8a1-46a0-9c26-d8be9b84b056)
+![image](https://github.com/valentinefleith/fract-ol/assets/125041345/4a69ad3b-3fda-4eef-b214-f5dcf7e7e425)
+
 
 
 
