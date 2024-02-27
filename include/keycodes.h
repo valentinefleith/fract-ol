@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:44:15 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 17:10:15 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:20:50 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define KEY_L 0x006c
 // ====== FRACTAL ======
 # define KEY_F 0x0066
+# define KEY_T 0x0074
 // ====== BRIGHTNESS ======
 # define KEY_1 0x0031
 # define KEY_2 0x0032

@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:46:58 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 19:10:52 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:23:21 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	key_events(int keycode, t_fractal *fractal)
 		return (change_fractal(fractal));
 	if (keycode == KEY_R || keycode == KEY_G || keycode == KEY_B)
 		return (handle_rgb(fractal, keycode));
+	if (keycode == KEY_T)
+		return change_mandel(fractal);
 	return (0);
 }
 

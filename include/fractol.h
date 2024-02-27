@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 19:23:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:23:38 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_fractal
 	int			help;
 	int			brightness;
 	int			lock;
+	int power;
 
 }				t_fractal;
 
@@ -91,6 +92,7 @@ int				shiftimaginary(t_fractal *fractal, char direction);
 
 // ====== FRACTAL SETS =======
 int				calculate_mandelbrot(t_pixel px, t_fractal *fractal);
+int				calculate_multibrot(t_pixel px, t_fractal *fractal);
 int				calculate_burning_ship(t_pixel px, t_fractal *fractal);
 int				calculate_julia(t_pixel px, t_fractal *fractal);
 int				change_julias_shape(int x, int y, t_fractal *fractal);
@@ -115,6 +117,7 @@ int				handle_lock(t_fractal *fractal);
 int				handle_help(t_fractal *fractal);
 int				handle_rgb(t_fractal *fractal, int keycode);
 int				change_fractal(t_fractal *fractal);
+int change_mandel(t_fractal *fractal);
 
 // ====== DISPLAY ======
 int				display_commands(t_fractal *fractal);
