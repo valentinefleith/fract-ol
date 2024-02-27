@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:32:45 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 19:44:04 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 23:41:17 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	handle_help(t_fractal *fractal)
 
 int	change_fractal(t_fractal *fractal)
 {
-	if (fractal->set == 2)
+	if (fractal->set == 3)
 		fractal->set = 0;
 	else
 		fractal->set++;
