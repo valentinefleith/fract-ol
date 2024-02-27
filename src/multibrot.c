@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:03:03 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 21:50:05 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 23:39:27 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static int	calculate_multifive(t_pixel px, t_fractal *fractal)
 	t_complex	point;
 	t_complex	z;
 	int			i;
-	double		r_square;
-	double		i_square;
+	double		r_sq;
+	double		i_sq;
 
 	point = rescale_pixel(px, fractal);
 	z.real = 0;
@@ -85,13 +85,13 @@ static int	calculate_multifive(t_pixel px, t_fractal *fractal)
 	i_sq = 0;
 	while (i < fractal->max_iterations)
 	{
-		z.imaginary = (5 * r_sq * r_sq * z.imaginary - 10 * r_sq * i_sq 
+		z.imaginary = (5 * r_sq * r_sq * z.imaginary - 10 * r_sq * i_sq
 				* z.imaginary + i_sq * i_sq * z.imaginary) + point.imaginary;
-		z.real = r_sq * r_sq * z.real - 10 * r_sq * i_sq * z.real + 5 
-			* z.real * i_sq * i_sq + point.real;
-		r_square = z.real * z.real;
-		i_square = z.imaginary * z.imaginary;
-		if (r_square + i_square > MAX)
+		z.real = r_sq * r_sq * z.real - 10 * r_sq * i_sq * z.real + 5 * z.real
+			* i_sq * i_sq + point.real;
+		r_sq = z.real * z.real;
+		i_sq = z.imaginary * z.imaginary;
+		if (r_sq + i_sq > MAX)
 			return (get_color(i, fractal));
 		i++;
 	}
