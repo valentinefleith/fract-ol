@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 13:43:20 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:50:18 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ typedef struct s_fractal
 	int			colorset;
 	int			palette[11];
 	int			colornb;
+	double      red;
+	double      green;
+	double      blue;
 	t_complex	current_point;
 	int			help;
 	int			brightness;
@@ -96,12 +99,13 @@ int				change_julias_shape(int x, int y, t_fractal *fractal);
 int				get_color(int iterations, t_fractal *fractal);
 void			calculate_and_put_pixels(t_fractal *fractal);
 void			my_mlx_pixel_put(t_img *img, int x, int y, int color);
-int				adjust_brightness(int color, int brightness);
+int				adjust_brightness(t_fractal *fractal, int brightness);
 
 // ====== EVENTS =======
 int				mouse_events(int button, int x, int y, t_fractal *fractal);
 int				key_events(int keycode, t_fractal *fractal);
 int				mouse_move(int x, int y, t_fractal *fractal);
+int 			reset_fractal(t_fractal *fractal);
 int				change_colors(t_fractal *fractal);
 int				change_precision(t_fractal *fractal, int keycode);
 int				handle_shift(t_fractal *fractal, int keycode);
@@ -109,6 +113,7 @@ int				change_brightness(t_fractal *fractal, int keycode);
 int				exit_program(t_fractal *fractal);
 int				handle_lock(t_fractal *fractal);
 int				handle_help(t_fractal *fractal);
+int				handle_rgb(t_fractal *fractal, int keycode);
 int				change_fractal(t_fractal *fractal);
 
 // ====== DISPLAY ======

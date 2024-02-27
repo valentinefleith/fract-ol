@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:32:45 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/21 15:35:11 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:48:48 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ int	change_fractal(t_fractal *fractal)
 		fractal->set = 0;
 	else
 		fractal->set++;
+	fractal_refresh(fractal);
+	return (0);
+}
+
+int handle_rgb(t_fractal *fractal, int keycode)
+{
+	if (keycode == KEY_R)
+		fractal->red += 0.1;
+	else if (keycode == KEY_B)
+		fractal->blue += 0.1;
+	else
+		fractal->green += 0.1;
 	fractal_refresh(fractal);
 	return (0);
 }

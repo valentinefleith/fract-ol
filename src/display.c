@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/20 19:41:24 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:04:14 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 static void	display_command_list(t_fractal *fractal, int *y)
 {
+	display_string_centered(fractal, y, "==== GENERAL ====");
 	display_string_centered(fractal, y, "arrows : move");
 	display_string_centered(fractal, y, "mouse wheel : zoom");
+	display_string_centered(fractal, y, "f : change fractal set");
+	display_string_centered(fractal, y, "<space> : reset");
 	display_string_centered(fractal, y, "p : add precision");
 	display_string_centered(fractal, y, "m : decrease precision");
+	*y += LINE_LENGTH;
+	display_string_centered(fractal, y, "==== COLORS ====");
 	display_string_centered(fractal, y, "c : change colorset");
-	display_string_centered(fractal, y, "d : add darkness");
-	display_string_centered(fractal, y, "b : add brightness");
-	display_string_centered(fractal, y, "r : reset");
-	display_string_centered(fractal, y, "f : change fractal set");
+	display_string_centered(fractal, y, "1 / 2 : add darkness / add brightness");
+	display_string_centered(fractal, y, "r / g / b : add red / green / blue");
+	*y += LINE_LENGTH;
 	if (fractal->set == 1)
+	{
+		display_string_centered(fractal, y, "==== SPECIFIC TO JULIA ====");
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
+		display_string_centered(fractal, y, "click : change julia's current point");
+	}
 }
 
 static void	display_precision(t_fractal *fractal)
