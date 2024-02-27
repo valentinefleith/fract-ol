@@ -6,7 +6,7 @@
 #    By: vafleith <vafleith@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/23 14:41:29 by vafleith          #+#    #+#              #
-#    Updated: 2024/02/26 18:07:14 by vafleith         ###   ########.fr        #
+#    Updated: 2024/02/27 19:04:41 by vafleith         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,11 +28,11 @@ LIBFT = $(LIBFT_PATH)/$(LIBFT_NAME)
 INC = -Iinclude -Ilibft -I$(MLX_PATH)
 
 SRC_DIR = src
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/draw.c $(SRC_DIR)/events.c \
-	   $(SRC_DIR)/mandelbrot.c $(SRC_DIR)/julia.c $(SRC_DIR)/view.c \
-	   $(SRC_DIR)/display.c $(SRC_DIR)/burning_ship.c $(SRC_DIR)/exit_program.c \
-	   $(SRC_DIR)/color.c $(SRC_DIR)/init.c $(SRC_DIR)/double_conversion.c \
-	   $(SRC_DIR)/parse_args.c $(SRC_DIR)/utils.c $(SRC_DIR)/handle.c
+
+SRCS = main.c draw.c events.c mandelbrot.c julia.c burning_ship.c display.c \
+	   view.c exit_program.c color.c init.c double_conversion.c parse_args.c \
+	   utils.c handle.c
+SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJ_DIR = build
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
