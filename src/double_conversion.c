@@ -6,12 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:13:20 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/19 10:53:30 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:11:22 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <math.h>
 
 static double	ft_get_dot_pos(char *str)
 {

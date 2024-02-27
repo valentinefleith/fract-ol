@@ -6,12 +6,11 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 23:08:40 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 13:53:40 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:39:46 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void	init_struct(t_fractal *fractal, t_img img)
 {
@@ -44,13 +43,14 @@ void	init_palette(t_fractal *fractal)
 	fractal->palette[1] = 0xf9e2af;
 	fractal->palette[2] = 0xf5bde6;
 	fractal->palette[3] = 0xc6a0f6;
-	fractal->palette[4] = 0xed8796;
+	fractal->palette[4] = 0xC5EBAA;
 	fractal->palette[5] = 0xee99a0;
 	fractal->palette[6] = 0xf5a97f;
 	fractal->palette[7] = 0xb7bdf8;
 	fractal->palette[8] = 0x74c7ec;
 	fractal->palette[9] = 0xcd8604;
-	fractal->palette[10] = 0xf4dbd6;
+	fractal->palette[10] = 0x191919;
+	fractal->palette[11] = 0xF6F5F5;
 }
 
 void	init_fractal(t_fractal *fractal)

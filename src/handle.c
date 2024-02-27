@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:32:45 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 16:48:48 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:44:04 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	change_precision(t_fractal *fractal, int keycode)
 	if (keycode == KEY_P)
 	{
 		if (fractal->max_iterations < MAX_ITERATIONS)
-			fractal->max_iterations++;
+			fractal->max_iterations += 5;
 	}
 	if (keycode == KEY_M)
 	{
 		if (fractal->max_iterations > MIN_ITERATIONS)
-			fractal->max_iterations--;
+			fractal->max_iterations -= 5;
 	}
 	fractal_refresh(fractal);
 	return (0);

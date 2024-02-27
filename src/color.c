@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:58:39 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 16:52:14 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:28:31 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	change_brightness(t_fractal *fractal, int keycode)
 
 int	change_colors(t_fractal *fractal)
 {
-	if (fractal->colornb == 9)
+	if (fractal->colornb == 11)
 		fractal->colornb = 0;
 	else
 		fractal->colornb++;
