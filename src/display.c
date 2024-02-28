@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 21:33:35 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:07:36 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ int	display_commands(t_fractal *fractal)
 	int	y;
 
 	y = 30;
-	fractal->help = 1;
 	display_black_window(fractal);
 	if (fractal->set == 0)
 		display_string_centered(fractal, &y, "------- MANDELBROT SET -------");
