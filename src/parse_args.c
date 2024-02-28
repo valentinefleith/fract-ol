@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/28 12:00:31 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:10:02 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 {
 	if (argc < 2)
 	{
-		ft_printf("Il faut un nom de fractale en argument.\n");
-		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n");
+		ft_printf("Please enter a fractal name.\n");
+		ft_printf("Possible arguments :\n\t- mandelbrot\n\t- julia\n");
 		ft_printf("\t- ship\n\t- multibrot\n");
 		return (0);
 	}
@@ -78,7 +78,7 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 		fractal->set = 3;
 	else
 	{
-		ft_printf("Arguments possibles :\n\t- mandelbrot\n\t- julia\n");
+		ft_printf("Possible arguments :\n\t- mandelbrot\n\t- julia\n");
 		ft_printf("\t- ship\n\t- multibrot\n");
 		return (0);
 	}
