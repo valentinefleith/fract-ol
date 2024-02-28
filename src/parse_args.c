@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/28 12:10:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/28 22:38:47 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,13 @@ static void	parse_julias_param(int argc, char **argv, t_fractal *fractal)
 {
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
-	if (argc < 4 || fractal->set != 1)
-		return ;
+	if (fractal->set != 1)
+		return;
+	if (argc < 4)
+	{
+		ft_printf("Wrong number input. We will keep default values.\n");
+		return;
+	}
 	if (!nb_is_valid(argv[2]) || !nb_is_valid(argv[3]))
 	{
 		ft_printf("Wrong number input. We will keep default values.\n");
