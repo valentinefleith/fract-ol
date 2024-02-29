@@ -6,13 +6,13 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:58:39 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/28 11:57:02 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/02/29 11:42:19 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	check_limits(int value, int min, int max)
+static int	check_limits(int value, int min, int max)
 {
 	if (value < min)
 		return (min);
@@ -21,7 +21,7 @@ int	check_limits(int value, int min, int max)
 	return (value);
 }
 
-int	adjust_brightness(t_fractal *fractal, int brightness)
+static int	adjust_brightness(t_fractal *fractal, int brightness)
 {
 	int	red;
 	int	green;
