@@ -49,11 +49,11 @@ static void	parse_julias_param(int argc, char **argv, t_fractal *fractal)
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
 	if (fractal->set != 1)
-		return;
+		return ;
 	if (argc < 4)
 	{
 		ft_printf("Wrong number input. We will keep default values.\n");
-		return;
+		return ;
 	}
 	if (!nb_is_valid(argv[2]) || !nb_is_valid(argv[3]))
 	{
