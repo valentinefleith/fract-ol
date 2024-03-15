@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:28:41 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/28 12:07:36 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/03/16 00:17:15 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	display_command_list(t_fractal *fractal, int *y)
 	display_string_centered(fractal, y, "1 / 2 : add darkness / brightness");
 	display_string_centered(fractal, y, "r / g / b : add red / green / blue");
 	*y += LINE_LENGTH;
-	if (fractal->set == 1)
+	if (fractal->set == 1 || fractal->set == 4)
 	{
 		display_string_centered(fractal, y, "==== SPECIFIC TO JULIA ====");
 		display_string_centered(fractal, y, "l : lock/unlock mouse moving");
@@ -75,10 +75,13 @@ void	display_standard(t_fractal *fractal)
 	else if (fractal->set == 3)
 		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
 			"------- MULTIBROT SET -------");
+	else if (fractal->set == 4)
+		mlx_string_put(fractal->mlx, fractal->win, 40, 20, BLACK,
+			"------- JULIA BURNING SHIP -------");
 	mlx_string_put(fractal->mlx, fractal->win, 40, 40, BLACK,
 		"Press h to display help");
 	display_precision(fractal);
-	if (fractal->set == 1)
+	if (fractal->set == 1 || fractal->set == 4)
 		display_julias_param(fractal);
 }
 
@@ -115,6 +118,8 @@ int	display_commands(t_fractal *fractal)
 			"------- BURNING SHIP FRACTAL -------");
 	else if (fractal->set == 3)
 		display_string_centered(fractal, &y, "------- MULTIBROT SET -------");
+	else if (fractal->set == 4)
+		display_string_centered(fractal, &y, "------- JULIA BURNING SHIP -------");
 	y += LINE_LENGTH;
 	display_command_list(fractal, &y);
 	return (0);

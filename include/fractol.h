@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:42:11 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/29 11:43:11 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/03/16 00:05:18 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int				shiftimaginary(t_fractal *fractal, char direction);
 int				calculate_mandelbrot(t_pixel px, t_fractal *fractal);
 int				calculate_multibrot(t_pixel px, t_fractal *fractal);
 int				calculate_burning_ship(t_pixel px, t_fractal *fractal);
+int				calculate_julia_burning_ship(t_pixel px, t_fractal *fractal);
 int				calculate_julia(t_pixel px, t_fractal *fractal);
 int				change_julias_shape(int x, int y, t_fractal *fractal);
 

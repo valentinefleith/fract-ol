@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:41:31 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/27 21:41:23 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/03/16 00:04:37 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	calculate_and_put_pixels(t_fractal *fractal)
 				color = calculate_burning_ship(px, fractal);
 			else if (fractal->set == 3)
 				color = calculate_multibrot(px, fractal);
+			else if (fractal->set == 4)
+				color = calculate_julia_burning_ship(px, fractal);
 			my_mlx_pixel_put(&fractal->img, px.x, px.y, color);
 			px.y++;
 		}

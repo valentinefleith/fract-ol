@@ -6,7 +6,7 @@
 /*   By: vafleith <vafleith@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:40:47 by vafleith          #+#    #+#             */
-/*   Updated: 2024/02/28 22:38:47 by vafleith         ###   ########.fr       */
+/*   Updated: 2024/03/16 00:18:00 by vafleith         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	parse_julias_param(int argc, char **argv, t_fractal *fractal)
 {
 	fractal->current_point.real = 0.285;
 	fractal->current_point.imaginary = 0.01;
-	if (fractal->set != 1)
+	if (fractal->set != 1 && fractal->set != 4)
 		return ;
 	if (argc < 4)
 	{
@@ -70,21 +70,23 @@ int	parse_args(int argc, char **argv, t_fractal *fractal)
 	{
 		ft_printf("Please enter a fractal name.\n");
 		ft_printf("Possible arguments :\n\t- mandelbrot\n\t- julia\n");
-		ft_printf("\t- ship\n\t- multibrot\n");
+		ft_printf("\t- ship\n\t- multibrot\n\t-julia_ship\n");
 		return (0);
 	}
 	if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
 		fractal->set = 0;
-	else if (!ft_strncmp(argv[1], "julia", ft_strlen("julia")))
+	else if (ft_strlen(argv[1]) == 5 && !ft_strncmp(argv[1], "julia", ft_strlen("julia")))
 		fractal->set = 1;
 	else if (!ft_strncmp(argv[1], "ship", ft_strlen("ship")))
 		fractal->set = 2;
 	else if (!ft_strncmp(argv[1], "multibrot", ft_strlen("multibrot")))
 		fractal->set = 3;
+	else if (!ft_strncmp(argv[1], "julia_ship", ft_strlen("julia_ship")))
+		fractal->set = 4;
 	else
 	{
 		ft_printf("Possible arguments :\n\t- mandelbrot\n\t- julia\n");
-		ft_printf("\t- ship\n\t- multibrot\n");
+		ft_printf("\t- ship\n\t- multibrot\n\t-julia_ship\n");
 		return (0);
 	}
 	parse_julias_param(argc, argv, fractal);
